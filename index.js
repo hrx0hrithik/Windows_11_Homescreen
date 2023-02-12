@@ -10,3 +10,15 @@ startbtn.addEventListener('click',function(){
 
     }
 });
+
+const settingBtn = document.querySelector('#sett-btn');
+const settingPanel = document.querySelector('#sett-nav');
+
+settingBtn.addEventListener('click', function(){
+    if(settingPanel.style.bottom =="55px"){
+        settingPanel.style.bottom = "-400px";
+    }
+    else{
+        settingPanel.style.bottom = '55px';
+    }
+})

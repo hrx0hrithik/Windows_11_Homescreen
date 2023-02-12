@@ -318,12 +318,14 @@ body{
     width: 350px;
     position: absolute;
     right: 25px;
-    bottom: 55px;
+    /* bottom: 55px; */
+    bottom: -400px;
     flex-direction: column;
     align-items: center;
     height: 380px;
     justify-content: space-between;
     border-radius: 8px;
+    transition: all 0.3s ease-in;
 }
 
 .nav-grid{
@@ -342,39 +344,44 @@ body{
     justify-content: space-between;
 }
 .material-symbols-outlined{
-    font-size: 15px;
+    font-size: 17px;
     width: 16px;
 }
 .wifi-bt-mor{
-    background-color: rgba(39, 38, 38, 0.796);
-    border: 1px solid white;
+    background-color: rgb(49 47 47 / 86%);
+    border: 1px solid #565656b0;
     border-radius: 0px 5px 5px 0px;
     color: white;
     padding: 10px;
     font-size: 14px;
 margin-right: -4px;
+height: 50px;
+width: 45px;
 }
 .wifi-btn{
-    background-color: rgba(39, 38, 38, 0.796);
-    border: 1px solid white;
+    background-color: rgb(49 47 47 / 86%);
+    border: 1px solid #565656b0;
     border-radius: 5px 0px 0px 5px;
     color: white;
     padding: 10px;
     font-size: 14px;
 margin-right: -4px;
+height: 50px;
+width: 45px;
 }
 .bt-btn{
-    background-color: rgba(39, 38, 38, 0.796);
-    border: 1px solid white;
+    background-color: rgb(49 47 47 / 86%);
+    border: 1px solid #565656b0;
     border-radius: 5px 0px 0px 5px;
     color: white;
     padding: 10px;
     font-size: 15px;
-margin-right: -4px;
+    margin-right: -1px;
+    width: 45px;
 }
 .nav-icon-div{
     background-color: rgb(49 47 47 / 86%);
-    border: 1px solid white;
+    border: 1px solid #565656b0;
     border-radius: 5px;
     color: white;
     padding: 10px;
@@ -382,6 +389,9 @@ margin-right: -4px;
     width: 90px;
     height: 50px; 
     margin: 0px 0px 5px 0px;  
+}
+.bi-airplane::before{
+    transform: rotate(90deg);
 }
 .slider{
     width: 90%;
