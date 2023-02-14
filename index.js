@@ -22,3 +22,10 @@ settingBtn.addEventListener('click', function(){
         settingPanel.style.bottom = '55px';
     }
 })
+var time = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+console.log(time);
+document.getElementById("time").textContent = time;
+
+var date = new Date().toLocaleDateString();
+console.log(date);
+document.getElementById("date").textContent = date;
