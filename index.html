@@ -12,6 +12,9 @@
 </head>
 
 <body class="dark">
+
+    <div id="preloader"><p class="pre-text">Please Wait</p></div>
+
     <video class="video" autoplay muted loop>
         <source src="image/wallpaper-live-dark.mp4" type="video/webm">
     </video>
@@ -32,19 +35,19 @@
                 <span class="pinned">Pinned</span><button class="start-all-apps">All apps &#160<i class="bi bi-chevron-right"></i></button>
             </div>
             <div class="start-item">
-                <div class="start-icon-div"><img class="start-icon" src="image/microsoft-store.png">Microsoft Store</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/settings.png">Settings</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/adobe-photoshop.png">Adobe Photoshop</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/calculator.png">Calculator</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/camera.png">Camera</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/chrome.png">Google Chrome</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/file-explorer.png">File Explorer</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/github.png">Github</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/microsoft-tips.png">Tips</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/microsoft-todo.png">Todo</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/visual-studio-code.png">VS Code</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/microsoft-edge.png">Microsoft Edge</div>
-                <div class="start-icon-div"><img class="start-icon" src="image/notepad.png">Notepad</div>
+                <div class="start-icon-div"><img class="start-icon" title="Microsoft Store" src="image/microsoft-store.png">Microsoft Store</div>
+                <div class="start-icon-div"><img class="start-icon" title="Setting" src="image/settings.png">Settings</div>
+                <div class="start-icon-div"><img class="start-icon" title="Adobe Photoshop" src="image/adobe-photoshop.png">Adobe Photoshop</div>
+                <div class="start-icon-div"><img class="start-icon" title="Calculator" src="image/calculator.png">Calculator</div>
+                <div class="start-icon-div"><img class="start-icon" title="Camera" src="image/camera.png">Camera</div>
+                <div class="start-icon-div"><img class="start-icon" title="Google Chrome" src="image/chrome.png">Google Chrome</div>
+                <div class="start-icon-div"><img class="start-icon" title="File Explorer" src="image/file-explorer.png">File Explorer</div>
+                <div class="start-icon-div"><img class="start-icon" title="Github" src="image/github.png">Github</div>
+                <div class="start-icon-div"><img class="start-icon" title="Tips" src="image/microsoft-tips.png">Tips</div>
+                <div class="start-icon-div"><img class="start-icon" title="Todo" src="image/microsoft-todo.png">Todo</div>
+                <div class="start-icon-div"><img class="start-icon" title="VS Code" src="image/visual-studio-code.png">VS Code</div>
+                <div class="start-icon-div"><img class="start-icon" title="Microsoft Edge" src="image/microsoft-edge.png">Microsoft Edge</div>
+                <div class="start-icon-div"><img class="start-icon" title="Notepad" src="image/notepad.png">Notepad</div>
             </div>
 
             <div class="rec-title">
@@ -99,28 +102,28 @@
     <div class="sett-nav" id="sett-nav">
        <div class="nav-grid">
         <div class="nav-items">
-            <div id="wifi-click">
+            <div id="wifi-click" style="border-radius: 5px;">
             <button  class="wifi-btn"><i class="bi bi-wifi"></i></button>
-            <button class="wifi-bt-mor"><i class="bi bi-chevron-right"></i></button></div>
+            <button class="wifi-bt-mor" id="wifi-mor"><i class="bi bi-chevron-right"></i></button></div>
             WiFi
         </div>
         <div class="nav-items">
-            <div id="bt-click" style="display: flex;">
+            <div id="bt-click" style="display: flex;border-radius: 5px;">
             <button class="bt-btn"><span class="material-symbols-outlined">bluetooth</span></button>
-            <button class="wifi-bt-mor"><i class="bi bi-chevron-right"></i></button></div>
+            <button class="wifi-bt-mor" id="bt-mor"><i class="bi bi-chevron-right"></i></button></div>
             Bluetooth
         </div>
         <div class="nav-items">
-            <button class="nav-icon-div"><i class="bi bi-airplane"></i></button>Airplane mode
+            <button id="air-btn" class="nav-icon-div"><i class="bi bi-airplane"></i></button>Airplane mode
         </div>
         <div class="nav-items">
-            <button class="nav-icon-div"><span class="material-symbols-outlined" style="font-size: 19px;transform: rotate(90deg);">battery_saver</span></button>Battery saver
+            <button id="batt-save" class="nav-icon-div"><span class="material-symbols-outlined" style="font-size: 19px;transform: rotate(90deg);">battery_saver</span></button>Battery saver
         </div>
         <div class="nav-items">
-            <button class="nav-icon-div"><i class="bi bi-moon-stars-fill"></i></button>Night light
+            <button id="night" class="nav-icon-div"><i class="bi bi-moon-stars-fill"></i></button>Night light
         </div>
         <div class="nav-items">
-            <button class="nav-icon-div"><i class="bi bi-universal-access"><i class="bi bi-chevron-right"></i></i></button>Accessibility
+            <button id="access" class="nav-icon-div"><i class="bi bi-universal-access"><i class="bi bi-chevron-right"></i></i></button>Accessibility
         </div>
        </div>
        <div class="slider">
@@ -132,12 +135,12 @@
         </div>
        </div>
        <div class="nav-bottom">
-        <div class="nav-batt"><i class="bi bi-battery-half"></i>80%</div>
+        <div class="nav-batt"><i class="bi bi-battery-half"></i>50%</div>
         <div class="nav-edit"><i class="bi bi-pencil"></i><i class="bi bi-gear"></i></div>
        </div>
     </div>
     <div class="taskbar">
-        <div class="weather">
+        <div class="weather" title="29&#8451">
             <img class="weather-icon" src="image/weather.png">
             <div class="temp-display"> 29&#8451 <br>
                 <p class="weather-txt">Feels Good</p>
@@ -145,19 +148,19 @@
         </div>
         <div class="task-icon">
 
-            <img class="task-icon-item" src="image/start.png" id="start-btn">
-            <img class="task-icon-item" src="image/icons8-search-64.png" id="search-btn">
-            <img class="task-icon-item" src="image/task-view.png" alt="Task View">
-            <img class="task-icon-item" src="image/microsoft-store.png" alt="Microsoft Store">
-            <img class="task-icon-item" src="image/file-explorer.png" alt="File Explorer">
-            <img class="task-icon-item" src="image/microsoft-edge.png">
+            <img class="task-icon-item" title="Start" src="image/start.png" id="start-btn">
+            <img class="task-icon-item" title="Search" src="image/icons8-search-64.png" id="search-btn">
+            <img class="task-icon-item" title="Task View" src="image/task-view.png" alt="Task View">
+            <img class="task-icon-item" title="Microsoft Store" src="image/microsoft-store.png" alt="Microsoft Store">
+            <img class="task-icon-item" title="File Explorer" src="image/file-explorer.png" alt="File Explorer">
+            <img class="task-icon-item" title="Microsoft Edge" src="image/microsoft-edge.png">
 
         </div>
         <div class="taskbar-tools">
             <div class="sett" id="sett-btn">
-                <i class="bi bi-wifi tools-icon"></i>
-                <i class="bi bi-volume-up tools-icon"></i>
-                <i class="bi bi-battery-half tools-icon"></i>
+                <i class="bi bi-wifi tools-icon" title="Internet access"></i>
+                <i class="bi bi-volume-up tools-icon" title="Speaker: 100%"></i>
+                <i class="bi bi-battery-half tools-icon" title="Battery status: 50% remaining"></i>
             </div>
             <div class="time">
                 <p class="dnt"><span id="time"> </span><br><span id="date"></span></p>
@@ -165,6 +168,13 @@
         </div>
     </div>
     <script src="index.js"></script>
+
+    <script>
+        var loader = document.getElementById('preloader');
+        window.addEventListener('load',function(){
+            loader.style.display='none';
+        });
+    </script>
 </body>
 
 </html>
