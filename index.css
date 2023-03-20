@@ -1,5 +1,6 @@
 :root{
     --hovcolor: rgba(79, 78, 78, 0.384);
+    --blue: rgba(27, 179, 255, 0);
 }
 .light{
     --bg: url('')
@@ -24,6 +25,7 @@ body{
     font-size: 12px;
     overflow: hidden;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 510;
 }
 
 .video{
@@ -33,6 +35,33 @@ body{
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.desktop{
+    display: grid;
+    grid-template-columns: repeat(10,80px);
+    grid-template-rows: repeat(8,85px);
+    grid-auto-flow: column;
+    /* height: 85hv; */
+}
+
+.desk-icon-div{
+    display: flex;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    font-size: 13px;
+    border-radius: 4px;
+}
+.desk-icon-div:hover{
+    background-color: var(--hovcolor);
+}
+
+.desk-icon{
+    width: 40px;
 }
 
 .taskbar{
@@ -152,7 +181,7 @@ body{
     height: 40px;
     /* border-bottom: 6px solid cyan; */
     border-radius: 5px;
-    background: #00000045;
+    background: #00000073;
     color: white;
     border: 0.5px solid black;
     background-image: url('image/search.png');
@@ -178,9 +207,10 @@ body{
     grid-template-columns: repeat(6,90px);
     grid-template-rows: repeat(3,78px);
     grid-row-gap: 0px;
-    grid-column-gap: 4px;
+    /* grid-column-gap: 4px; */
     justify-items: center;  
     position: relative;
+    left: 13px;
     
 }
 .start-icon{
@@ -197,6 +227,7 @@ body{
     border-radius: 4px;
     width: 95%;
     text-align: center;
+    font-weight: 400;
 }
 
 .start-icon-div:hover{
@@ -223,6 +254,7 @@ body{
     border: none;
     border-radius: 4px;
     font-size: 12px;
+    font-family: inherit;
 }
 .start-all-apps:hover{
     background-color: #555050bf;
@@ -233,6 +265,8 @@ body{
     justify-content: space-around;
     margin: 10px;
     padding: 2px;
+    font-weight: initial;
+    font-size: 12px;
 }
 .rec-title{
     display: flex;
@@ -300,7 +334,7 @@ body{
     /* background-color: red; */
     border: none;
     margin: 0px 55px 0px 0px;
-    padding: 10px;
+    padding: 8px 10px;
     border-radius: 4px;
 }
 .bi-power{
@@ -407,8 +441,9 @@ width: 45px;
     width: 80%;
     padding: 15px 0px;
 }
-
-
+.nav-icon-div:hover , .wifi-bt-mor:hover, .wifi-btn:hover, .bt-btn:hover{
+    background-color: var(--hovcolor);
+}
 .nav-bottom{
     display: flex;
     width: 96%;

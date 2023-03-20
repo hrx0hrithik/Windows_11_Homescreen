@@ -16,6 +16,13 @@
         <source src="image/wallpaper-live-dark.mp4" type="video/webm">
     </video>
     <div class="desktop">
+        <div class="desk-icon-div"><img class="desk-icon" title="Shows the disk drives and hardwares connected to this computer" src="image/this-pc.png">This&nbspPC</div>
+        <div class="desk-icon-div"><img class="desk-icon" title="Contains the files and folders that you have deleted" src="image/recycle-bin.png">Recycle&nbspBin</div>
+        <div class="desk-icon-div"><img class="desk-icon" title="Browse the web" src="image/microsoft-edge.png">Microsoft&nbspEdge</div>
+        <div class="desk-icon-div"><img class="desk-icon" title="Access the Internet" tabindex="1" src="image/chrome.png">Google&nbspChrome</div>
+
+
+
         <div class="start-box" id="startmenu-box">
             <div class="search">
                 <input class="searchbar" id="searchbar" type="text" placeholder="Type here to search"
@@ -92,13 +99,13 @@
     <div class="sett-nav" id="sett-nav">
        <div class="nav-grid">
         <div class="nav-items">
-            <div>
+            <div id="wifi-click">
             <button  class="wifi-btn"><i class="bi bi-wifi"></i></button>
             <button class="wifi-bt-mor"><i class="bi bi-chevron-right"></i></button></div>
             WiFi
         </div>
         <div class="nav-items">
-            <div style="display: flex;">
+            <div id="bt-click" style="display: flex;">
             <button class="bt-btn"><span class="material-symbols-outlined">bluetooth</span></button>
             <button class="wifi-bt-mor"><i class="bi bi-chevron-right"></i></button></div>
             Bluetooth
@@ -118,7 +125,7 @@
        </div>
        <div class="slider">
         <div class="slide-item">
-            <i class="bi bi-brightness-low"></i>&nbsp;&nbsp;&nbsp;<input class="range" type="range" min="0" max="100" value="50">
+            <i class="bi bi-brightness-low"style="font-size: 16px;"></i>&nbsp;&nbsp;&nbsp;<input class="range" type="range" min="0" max="100" value="50">
         </div>
         <div class="slide-item">
             <i class="bi bi-volume-up tools-icon"></i>&nbsp;<input class="range" type="range" min="0" max="100" value="100">&nbsp;&nbsp;<i class="bi bi-speaker"></i>&nbsp;<i class="bi bi-chevron-right"></i>
