@@ -73,6 +73,7 @@ const airBtn = document.querySelector('#air-btn');
 const battBtn = document.querySelector('#batt-save');
 const nightBtn = document.querySelector('#night');
 const accessBtn = document.querySelector('#access');
+const body = document.querySelector('#body');
 
 airBtn.addEventListener('click', function(){
     airBtn.classList.toggle('active-btn');
@@ -84,6 +85,8 @@ battBtn.addEventListener('click', function(){
 })
 nightBtn.addEventListener('click', function(){
     nightBtn.classList.toggle('active-btn');
+    body.classList.remove('dark');
+    body.classList.add('light');
 
 })
 accessBtn.addEventListener('click', function(){

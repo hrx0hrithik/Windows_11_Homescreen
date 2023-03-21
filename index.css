@@ -1,27 +1,44 @@
 :root{
-    --hovcolor: rgba(79, 78, 78, 0.384);
+    
     --blue: rgba(27, 179, 255, 0);
 }
+
 .light{
-    --bg: url('')
+    --bg: url('image/wallpaper-light.mp4');
+    --bgcl: #afb5b8;
+    --text: black;
+    --taskcl: rgba(226, 226, 226, 0.933);
+    --hovcolor:rgba(240, 240, 240, 0.955);
+    --navbg: rgba(235, 235, 235, 0.937);
+    --navbott: rgba(244, 244, 244, 0.766);
+    --navbtn: white;
 }
 .dark{
-    --bg: url('image/wallpapers-dark.jpg')
+    --bg: url('image/wallpapers-dark.jpg');
+    --bgcl: black;
+    --text: white;
+    --taskcl:rgb(33 32 32 / 93%);
+    --hovcolor: rgba(79, 78, 78, 0.384);
+    --navbg: rgb(30 30 31 / 96%);
+    --navbott: rgb(42, 42, 42);
+    --navbtn: rgba(25, 25, 26, 0.96);
 }
 
 *{
     margin: 0px;
     padding: 0px;
     cursor:default;
+    /* border: 1px solid black; */
 }
 
 
 body{
-    background-color: rgba(0, 0, 0, 0.901);
-    /* background-image: url('image/wallpapers-dark.jpg'); */
-    background-size: cover;
+    background: var(--bg);
+    background-color: var(--bgcl);
+    background-position: center;
+    background-size: cover, cover;
     background-repeat: no-repeat;
-    color: white;
+    color: var(--text);
     font-size: 12px;
     overflow: hidden;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,7 +57,7 @@ body{
 .desktop{
     display: grid;
     grid-template-columns: repeat(10,80px);
-    grid-template-rows: repeat(8,85px);
+    grid-template-rows: repeat(8,86px);
     grid-auto-flow: column;
     /* height: 85hv; */
 }
@@ -64,15 +81,24 @@ body{
     width: 40px;
 }
 
+.icon-text{
+    text-align: center;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    color: rgb(248, 248, 248);
+    text-shadow: 2px 2px 2px black;
+}
+
 .taskbar{
-    background-color:rgb(33 32 32 / 93%);
+    background-color:var(--taskcl);
     display: grid;
     grid-template-columns: 150px auto 200px;
     position: fixed;
     bottom: 0px;
     width: 100%;
-    height: 40px;
-    padding: 2px;
+    z-index: 3;
+    /* height: 35px; */
+    padding: 0px 2px 2px 2px;
     justify-items: center;
     align-items: center;
 }
@@ -83,7 +109,7 @@ body{
     align-items: center;
     padding-right: 40px;
     border-radius: 3px;
-    z-index: 1;
+    z-index: 4;
     margin: 2px 0px;
 }
 .weather:hover{
@@ -96,6 +122,10 @@ body{
 .weather-icon{
     width: 30px;
     padding: 3px;
+}
+
+#start-btn:active{
+    transform: scale(0.8);
 }
 
 .task-icon{
@@ -155,15 +185,17 @@ body{
 } */
 
 .start-box{
-    background-color: #252d32f6;
+    background-color: var(--navbg);
     width: 590px;
     height: auto;
     position: absolute;
+    z-index: 3;
     bottom: -700px;
-    left:30%;
+    left:50%;
     margin: 2px;
     border-radius: 10px;
     transition: all 0.3s ease-in;
+    transform: translate(-50%,-0%)
 }
 .search{
     width: 95%;
@@ -180,9 +212,9 @@ body{
     height: 40px;
     /* border-bottom: 6px solid cyan; */
     border-radius: 5px;
-    background: #00000073;
-    color: white;
-    border: 0.5px solid black;
+    background: var(--navbtn);
+    color: var(--text);
+    border: 0.5px solid var(--text);
     background-image: url('image/search.png');
     background-size: 18px;
   background-position: 10px 10px; 
@@ -231,8 +263,6 @@ body{
 
 .start-icon-div:hover{
     background-color:var(--hovcolor);
-
-    
 }
 
 .pinned{
@@ -248,15 +278,15 @@ body{
     right: 50px;
     padding: 6px;
     margin: 4px;
-    color: white;
-    background-color: #3e3a3abf;
+    color: var(--text);
+    background-color: var(--navbtn);
     border: none;
     border-radius: 4px;
     font-size: 12px;
     font-family: inherit;
 }
 .start-all-apps:hover{
-    background-color: #555050bf;
+    background-color: var(--hovcolor);
 }
 
 .rec-div{
@@ -272,7 +302,6 @@ body{
     height: 20px;
     margin: 2px 5px 0px 5px;
     padding: 10px 5px 5px 5px;
-
 }
 .rec-list{
     list-style: none;
@@ -304,7 +333,7 @@ body{
     display: flex;
     justify-content: space-between;
     height: 60px;
-    background-color: #212121ed;
+    background-color: var(--navbott);
     border: 0px solid black;
     border-radius: 0px 0px 10px 10px;
     align-items: center;
@@ -312,7 +341,7 @@ body{
 .user-btn{
     background: transparent;
     border: none;
-    color: white;
+    color: var(--text);
     display: flex;
     align-items: center;
     padding: 3px 8px;
@@ -330,7 +359,7 @@ body{
 }
 .power-btn{
     background: transparent;
-    /* background-color: red; */
+    color: var(--text);
     border: none;
     margin: 0px 55px 0px 0px;
     padding: 8px 10px;
@@ -346,7 +375,7 @@ body{
 /* Navigation Pannel Right */
 
 .sett-nav{
-    background-color: rgb(30 30 31 / 96%);
+    background-color:var(--navbg);
     display: flex;
     width: 370px;
     position: absolute;
@@ -381,10 +410,10 @@ body{
 }
 
 .wifi-bt-mor{
-    background-color: rgb(49 47 47 / 86%);
+    background-color:var(--navbtn);
     border: 1px solid #565656b0;
     border-radius: 0px 5px 5px 0px;
-    color: white;
+    color: var(--text);
     padding: 10px;
     font-size: 14px;
 margin-right: -4px;
@@ -392,10 +421,10 @@ height: 50px;
 width: 50px;
 }
 .wifi-btn{
-    background-color: rgb(49 47 47 / 86%);
+    background-color: var(--navbtn);
     border: 1px solid #565656b0;
     border-radius: 5px 0px 0px 5px;
-    color: white;
+    color: var(--text);
     padding: 10px;
     font-size: 14px;
 margin-right: -4px;
@@ -403,20 +432,20 @@ height: 50px;
 width: 50px;
 }
 .bt-btn{
-    background-color: rgb(49 47 47 / 86%);
+    background-color: var(--navbtn);
     border: 1px solid #565656b0;
     border-radius: 5px 0px 0px 5px;
-    color: white;
+    color: var(--text);
     padding: 10px;
     font-size: 15px;
     margin-right: -1px;
     width: 50px;
 }
 .nav-icon-div{
-    background-color: rgb(49 47 47 / 86%);
+    background-color: var(--navbtn);
     border: 1px solid #565656b0;
     border-radius: 5px;
-    color: white;
+    color: var(--text);
     padding: 10px;
     font-size: 14px;
     width: 100px;
@@ -456,12 +485,11 @@ width: 50px;
     display: flex;
     width: 96%;
     justify-content: space-between;
-    background-color: rgb(42, 42, 42);
+    background-color: var(--navbott);
     height: 40px;
     align-items: center;
     padding: 7px;
     border-radius: 0 0 8px 8px;
-
 }
 .nav-batt{
     left: 18px;
@@ -469,17 +497,14 @@ width: 50px;
 }
 .nav-edit{
     position: absolute;
-right: 10px;
+    right: 10px;
 }
-
-
 .pre-text{
     text-align: center;
     font-size: 20px;
     position: relative;
     top: 60%;
 }
-
 #preloader{
     background: #000 url(image/loading-windows.gif) no-repeat center center;
     height: 100vh;
