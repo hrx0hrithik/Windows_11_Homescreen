@@ -4,7 +4,7 @@
 }
 
 .light{
-    --bg: url('image/wallpaper-light.mp4');
+    --bg: url('image/wallpapers-glow.jpg');
     --bgcl: #afb5b8;
     --text: black;
     --taskcl: rgba(226, 226, 226, 0.933);
@@ -97,7 +97,7 @@ body{
     bottom: 0px;
     width: 100%;
     z-index: 3;
-    /* height: 35px; */
+    height: 40px;
     padding: 0px 2px 2px 2px;
     justify-items: center;
     align-items: center;
