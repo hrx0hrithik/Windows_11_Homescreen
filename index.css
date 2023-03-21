@@ -5,16 +5,19 @@
 
 .light{
     --bg: url('image/wallpapers-glow.jpg');
+    --same:white;
     --bgcl: #afb5b8;
     --text: black;
-    --taskcl: rgba(226, 226, 226, 0.933);
+    --taskcl: rgba(213, 229, 233, 0.978);
     --hovcolor:rgba(240, 240, 240, 0.955);
-    --navbg: rgba(235, 235, 235, 0.937);
-    --navbott: rgba(244, 244, 244, 0.766);
-    --navbtn: white;
+    --navbg: rgba(225, 232, 234, 0.919);
+    --navbott: rgba(216, 221, 221, 0.945);
+    --navbtn: rgb(243, 243, 243);
+    /* transition: 0.5s ease-in-out; */
 }
 .dark{
-    --bg: url('image/wallpapers-dark.jpg');
+    --bg: url('image/wallpaper-live-dark.mp4');
+    --same:black;
     --bgcl: black;
     --text: white;
     --taskcl:rgb(33 32 32 / 93%);
@@ -22,6 +25,7 @@
     --navbg: rgb(30 30 31 / 96%);
     --navbott: rgb(42, 42, 42);
     --navbtn: rgba(25, 25, 26, 0.96);
+    /* transition: 0.5s ease-in-out; */
 }
 
 *{
@@ -214,12 +218,14 @@ body{
     border-radius: 5px;
     background: var(--navbtn);
     color: var(--text);
-    border: 0.5px solid var(--text);
-    background-image: url('image/search.png');
+    border-color: var(--same);
+    /* border: 0.5px solid; */
+    background-image: url('image/search-light.png');
     background-size: 18px;
   background-position: 10px 10px; 
   background-repeat: no-repeat;
   cursor: initial;
+  outline: none;
 }
 .searchbar:focus-visible{
     outline: none;
@@ -282,6 +288,7 @@ body{
     background-color: var(--navbtn);
     border: none;
     border-radius: 4px;
+    box-shadow: 1px 1px 1px rgb(174, 174, 174);
     font-size: 12px;
     font-family: inherit;
 }
@@ -334,7 +341,7 @@ body{
     justify-content: space-between;
     height: 60px;
     background-color: var(--navbott);
-    border: 0px solid black;
+    border-top: 1px solid inherit;
     border-radius: 0px 0px 10px 10px;
     align-items: center;
 }
@@ -511,4 +518,5 @@ width: 50px;
     width: 100%;
     position: fixed;
     z-index: 20;
+    color: white;
 }

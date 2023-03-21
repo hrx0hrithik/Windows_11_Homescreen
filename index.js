@@ -21,10 +21,38 @@ settingBtn.addEventListener('click', function(){
     else{
         settingPanel.style.bottom = '55px';
     }
-})
-var time = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-console.log(time);
-document.getElementById("time").textContent = time;
+});
+
+function currentTime() {
+    let date = new Date(); 
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+  
+    if(hh == 0){
+        hh = 12;
+    }
+    if(hh > 12){
+        hh = hh - 12;
+        session = "PM";
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + " " + session;
+  
+    document.getElementById("time").textContent = time; 
+    // console.log(time);
+    let t = setTimeout(function(){ currentTime() }, 1000);
+  }
+  currentTime();
+
+// var time = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+// document.getElementById("time").textContent = time;
+
 
 const monthArr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 // var date = new Date().toLocaleDateString();
@@ -75,6 +103,13 @@ const nightBtn = document.querySelector('#night');
 const accessBtn = document.querySelector('#access');
 const body = document.querySelector('#body');
 
+const startSearch = document.getElementById('search-btn');
+const searchBtn = document.querySelector('#searchbar');
+const msIcon1 = document.getElementById('microsoft-store1');
+const msIcon2 = document.getElementById('microsoft-store2');
+
+const liveBg = document.querySelector('#video');
+
 airBtn.addEventListener('click', function(){
     airBtn.classList.toggle('active-btn');
 
@@ -83,13 +118,47 @@ battBtn.addEventListener('click', function(){
     battBtn.classList.toggle('active-btn');
 
 })
-nightBtn.addEventListener('click', function(){
-    nightBtn.classList.toggle('active-btn');
-    body.classList.remove('dark');
-    body.classList.add('light');
-
-})
 accessBtn.addEventListener('click', function(){
     accessBtn.classList.toggle('active-btn');
 
 })
+
+
+// Themes Change (light & dark mode)
+
+const theme = localStorage.getItem('theme');
+
+if(theme){
+    body.classList.add(theme);
+}
+
+nightBtn.addEventListener('click', function(){
+    nightBtn.classList.toggle('active-btn');
+    body.classList.toggle('light');
+    body.classList.toggle('dark');
+    // console.log('toggle');
+    if(body.classList.contains('dark')){
+        msIcon1.src = "image/microsoft-store-dark.png"
+        msIcon2.src = "image/microsoft-store-dark.png"
+        startSearch.src = "image/start-search-dark.png";
+        searchBtn.style.backgroundImage = "url(image/search-dark.png)"
+        localStorage.setItem('theme','dark');
+        liveBg.innerHTML = `<video class="video" autoplay muted loop>
+        <source src="image/wallpaper-live-dark.mp4" type="video/webm">
+        </video>`;
+    }
+    else{
+        msIcon1.src = "image/microsoft-store-light.png"
+        msIcon2.src = "image/microsoft-store-light.png"
+        startSearch.src = "image/start-search-light.png"
+        searchBtn.style.backgroundImage = "url(image/search-light.png)";
+        localStorage.setItem('theme','light');
+        liveBg.innerHTML = " ";
+    }
+})
+
+// localStorage.setItem("theme",body.classList);
+// console.log.getItem("theme");
+
+
+
