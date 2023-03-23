@@ -2,26 +2,44 @@ const startbox = document.querySelector('#startmenu-box');
 const startbtn = document.querySelector('#start-btn');
 
 startbtn.addEventListener('click',function(){
-    if(startbox.style.bottom =="50px"){
-        startbox.style.bottom = "-700px";
-    }
-    else{
-     startbox.style.bottom = '50px';
-
-    }
+//     // if(startbox.style.bottom =="50px"){
+//     //     startbox.style.bottom = "-700px";
+//     // }
+//     // else{
+//     //  startbox.style.bottom = '50px';
+//     // }
+    startbox.classList.toggle('active-start');
 });
 
 const settingBtn = document.querySelector('#sett-btn');
 const settingPanel = document.querySelector('#sett-nav');
 
 settingBtn.addEventListener('click', function(){
-    if(settingPanel.style.bottom =="55px"){
-        settingPanel.style.bottom = "-400px";
-    }
-    else{
-        settingPanel.style.bottom = '55px';
-    }
+    // if(settingPanel.style.bottom =="55px"){
+    //     settingPanel.style.bottom = "-400px";
+    // }
+    // else{
+    //     settingPanel.style.bottom = '55px';
+    // }
+    settingPanel.classList.toggle('active-nav');
+    // console.log('pn1');
 });
+
+window.onclick = (e) => {
+    if (!e.target.matches('.start-btn')){
+        if(startbox.classList.contains('active-start')){
+            startbox.classList.remove('active-start');
+        }
+    }
+    if (!e.target.matches('#sett-btn')){
+        if(settingPanel.classList.contains('active-nav')){
+            settingPanel.classList.remove('active-nav');
+        }
+    }
+}
+startbox.addEventListener('click', e => e.stopPropagation());
+settingPanel.addEventListener('click', e => e.stopPropagation());
+
 
 function currentTime() {
     let date = new Date(); 
@@ -75,7 +93,7 @@ if (month < 10) {
 }
 
 let formatDate = `${day}-${month}-${year}`;
-console.log(formatDate);
+// console.log(formatDate);
 document.getElementById("date").textContent = formatDate;
 document.querySelector(".time").title = `${day} ${monthName} ${year}`;
 
@@ -138,27 +156,23 @@ nightBtn.addEventListener('click', function(){
     body.classList.toggle('dark');
     // console.log('toggle');
     if(body.classList.contains('dark')){
-        msIcon1.src = "image/microsoft-store-dark.png"
-        msIcon2.src = "image/microsoft-store-dark.png"
+        msIcon1.src = "image/microsoft-store-dark.png";
+        msIcon2.src = "image/microsoft-store-dark.png";
         startSearch.src = "image/start-search-dark.png";
-        searchBtn.style.backgroundImage = "url(image/search-dark.png)"
+        searchBtn.style.backgroundImage = "url(image/search-dark.png)";
         localStorage.setItem('theme','dark');
         liveBg.innerHTML = `<video class="video" autoplay muted loop>
         <source src="image/wallpaper-live-dark.mp4" type="video/webm">
         </video>`;
     }
     else{
-        msIcon1.src = "image/microsoft-store-light.png"
-        msIcon2.src = "image/microsoft-store-light.png"
-        startSearch.src = "image/start-search-light.png"
+        msIcon1.src = "image/microsoft-store-light.png";
+        msIcon2.src = "image/microsoft-store-light.png";
+        startSearch.src = "image/start-search-light.png";
         searchBtn.style.backgroundImage = "url(image/search-light.png)";
         localStorage.setItem('theme','light');
         liveBg.innerHTML = " ";
     }
-})
-
-// localStorage.setItem("theme",body.classList);
-// console.log.getItem("theme");
-
+});
 
 

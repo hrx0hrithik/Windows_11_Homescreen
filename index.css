@@ -198,8 +198,13 @@ body{
     left:50%;
     margin: 2px;
     border-radius: 10px;
+    opacity: 0;
     transition: all 0.3s ease-in;
     transform: translate(-50%,-0%)
+}
+.active-start{
+    opacity: 1;
+    bottom: 50px;
 }
 .search{
     width: 95%;
@@ -392,8 +397,13 @@ body{
     align-items: center;
     height: 380px;
     justify-content: space-between;
+    opacity: 0;
     border-radius: 8px;
     transition: all 0.2s ease-in;
+}
+.active-nav{
+    bottom: 55px;
+    opacity: 1;
 }
 
 .nav-grid{
@@ -520,3 +530,9 @@ width: 50px;
     z-index: 20;
     color: white;
 }
+
+
+/* @media screen {
+    min-width: 600px;
+    
+} */
