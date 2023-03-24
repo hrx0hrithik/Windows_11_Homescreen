@@ -40,7 +40,6 @@ window.onclick = (e) => {
 startbox.addEventListener('click', e => e.stopPropagation());
 settingPanel.addEventListener('click', e => e.stopPropagation());
 
-
 function currentTime() {
     let date = new Date(); 
     let hh = date.getHours();
@@ -54,12 +53,10 @@ function currentTime() {
     if(hh > 12){
         hh = hh - 12;
         session = "PM";
-     }
-  
+    }
      hh = (hh < 10) ? "0" + hh : hh;
      mm = (mm < 10) ? "0" + mm : mm;
      ss = (ss < 10) ? "0" + ss : ss;
-      
      let time = hh + ":" + mm + " " + session;
   
     document.getElementById("time").textContent = time; 
