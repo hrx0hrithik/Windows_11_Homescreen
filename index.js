@@ -10,7 +10,6 @@ startbtn.addEventListener('click',function(){
 //     // }
     startbox.classList.toggle('active-start');
 });
-
 const settingBtn = document.querySelector('#sett-btn');
 const settingPanel = document.querySelector('#sett-nav');
 
@@ -128,22 +127,17 @@ const liveBg = document.querySelector('#video');
 
 airBtn.addEventListener('click', function(){
     airBtn.classList.toggle('active-btn');
-
 })
 battBtn.addEventListener('click', function(){
     battBtn.classList.toggle('active-btn');
-
 })
 accessBtn.addEventListener('click', function(){
     accessBtn.classList.toggle('active-btn');
-
 })
-
 
 // Themes Change (light & dark mode)
 
 const theme = localStorage.getItem('theme');
-
 if(theme){
     body.classList.add(theme);
 }
@@ -172,5 +166,3 @@ nightBtn.addEventListener('click', function(){
         liveBg.innerHTML = " ";
     }
 });
-
-
