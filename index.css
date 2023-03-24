@@ -1,5 +1,4 @@
 :root{
-    
     --blue: rgba(27, 179, 255, 0);
 }
 
@@ -34,7 +33,6 @@
     cursor:default;
     /* border: 1px solid black; */
 }
-
 
 body{
     background: var(--bg);
@@ -530,7 +528,6 @@ width: 50px;
     z-index: 20;
     color: white;
 }
-
 
 /* @media screen {
     min-width: 600px;

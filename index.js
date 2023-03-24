@@ -80,7 +80,7 @@ let day = objectDate.getDate();
 
 let month = objectDate.getMonth();
 let monthName = monthArr[objectDate.getMonth()];
-// console.log(month + 1); 
+console.log(month + 1); 
 
 let year = objectDate.getFullYear();
 // console.log(year);
