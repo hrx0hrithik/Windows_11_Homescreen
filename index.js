@@ -78,7 +78,8 @@ let objectDate = new Date();
 let day = objectDate.getDate();
 // console.log(day);
 
-let month = objectDate.getMonth();
+let month1 = objectDate.getMonth();
+let month = month1+1;
 let monthName = monthArr[objectDate.getMonth()];
 console.log(month + 1); 
 
