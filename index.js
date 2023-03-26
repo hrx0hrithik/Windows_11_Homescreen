@@ -12,18 +12,15 @@ startbtn.addEventListener('click',function(){
 });
 const settingBtn = document.querySelector('#sett-btn');
 const settingPanel = document.querySelector('#sett-nav');
+const settImg = document.querySelectorAll('.tools-icon');
 
-settingBtn.addEventListener('click', function(){
-    // if(settingPanel.style.bottom =="55px"){
-    //     settingPanel.style.bottom = "-400px";
-    // }
-    // else{
-    //     settingPanel.style.bottom = '55px';
-    // }
-    settingPanel.classList.toggle('active-nav');
-    // console.log('pn1');
+settingBtn.addEventListener('click', function(event){
+    if(event.target === settingBtn || event.target === settImg[1]|| event.target === settImg[2]|| event.target === settImg[3]|| event.target === settImg[4]){
+        console.log("I am logger");
+        settingPanel.classList.toggle('active-nav');
+        console.log('ifpart');
+    }
 });
-
 window.onclick = (e) => {
     if (!e.target.matches('.start-btn')){
         if(startbox.classList.contains('active-start')){
@@ -45,7 +42,7 @@ function currentTime() {
     let mm = date.getMinutes();
     let ss = date.getSeconds();
     let session = "AM";
-  
+
     if(hh == 0){
         hh = 12;
     }
@@ -57,7 +54,7 @@ function currentTime() {
      mm = (mm < 10) ? "0" + mm : mm;
      ss = (ss < 10) ? "0" + ss : ss;
      let time = hh + ":" + mm + " " + session;
-  
+
     document.getElementById("time").textContent = time; 
     // console.log(time);
     let t = setTimeout(function(){ currentTime() }, 1000);
@@ -66,7 +63,6 @@ function currentTime() {
 
 // var time = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
 // document.getElementById("time").textContent = time;
-
 
 const monthArr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 // var date = new Date().toLocaleDateString();
@@ -77,7 +73,7 @@ let day = objectDate.getDate();
 let month1 = objectDate.getMonth();
 let month = month1+1;
 let monthName = monthArr[objectDate.getMonth()];
-console.log(month + 1); 
+
 
 let year = objectDate.getFullYear();
 // console.log(year);
@@ -97,7 +93,7 @@ document.querySelector(".time").title = `${day} ${monthName} ${year}`;
 const wifiBtn = document.querySelector('#wifi-click');
 const btBtn = document.querySelector('#bt-click');
 const wifi1 = document.querySelector('.wifi-btn');
-const wifi2 = document.querySelector('#wifi-mor')
+const wifi2 = document.querySelector('#wifi-mor');
 const bt1 = document.querySelector('.bt-btn');
 const bt2 = document.querySelector('#bt-mor');
 
