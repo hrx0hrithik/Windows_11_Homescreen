@@ -11,23 +11,26 @@
     <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="light" id="body">
+<body class="light" id="body" tabindex="-1">
 
     <div id="preloader"><p class="pre-text">Please Wait</p></div>
-    <div id="video"></div>
+    <div id="video" tabindex="-1"></div>
     
-    <div class="desktop">
-        <div class="desk-icon-div"><img class="desk-icon" title="Shows the disk drives and hardwares connected to this computer" src="image/this-pc.png"><p class="icon-text">This PC</p></div>
-        <div class="desk-icon-div"><img class="desk-icon" title="Contains the files and folders that you have deleted" src="image/recycle-bin.png"><p class="icon-text">Recycle Bin</p></div>
-        <div class="desk-icon-div"><img class="desk-icon" title="Browse the web" src="image/microsoft-edge.png"><p class="icon-text">Microsoft Edge</p></div>
-        <div class="desk-icon-div"><img class="desk-icon" title="Access the Internet" tabindex="1" src="image/chrome.png"><p class="icon-text">Google Chrome</p></div>
+    <div class="desktop" tabindex="-1">
+        <div class="desk-icon-div"><img class="desk-icon" title="Shows the disk drives and hardwares connected to this computer" tabindex="1" src="image/this-pc.png"><p class="icon-text">This PC</p></div>
+        <div class="desk-icon-div"><img class="desk-icon" title="Contains the files and folders that you have deleted" tabindex="2" src="image/recycle-bin.png"><p class="icon-text">Recycle Bin</p></div>
+        <div class="desk-icon-div"><img class="desk-icon" title="Browse the web" tabindex="3" src="image/microsoft-edge.png"><p class="icon-text">Microsoft Edge</p></div>
+        <div class="desk-icon-div"><img class="desk-icon" title="Access the Internet" tabindex="4" src="image/chrome.png"><p class="icon-text">Google Chrome</p></div>
 
 
 
-        <div class="start-box" id="startmenu-box">
+        <div class="start-box" id="startmenu-box" tabindex="-1">
             <div class="search">
                 <input class="searchbar" id="searchbar" type="text" placeholder="Type here to search"
                     style="border-bottom: 2px solid cyan;">
+            </div>
+            <div class="all-apps">
+
             </div>
             <div class="start-item-title">
                 <span class="pinned">Pinned</span><button class="start-all-apps">All apps &#160<i class="bi bi-chevron-right"></i></button>
@@ -97,7 +100,7 @@
         </div>
 
     </div>
-    <div class="sett-nav" id="sett-nav">
+    <div class="sett-nav" id="sett-nav" tabindex="-1">
        <div class="nav-grid">
         <div class="nav-items">
             <div id="wifi-click" style="border-radius: 5px;">
@@ -138,7 +141,7 @@
        </div>
     </div>
     <div class="taskbar">
-        <div class="weather" title="29&#8451">
+        <div class="weather" title="29&#8451" tabindex="1">
             <img class="weather-icon" src="image/weather.png">
             <div class="temp-display"> 29&#8451 <br>
                 <p class="weather-txt">Feels Good</p>
