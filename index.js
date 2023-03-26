@@ -12,13 +12,13 @@ startbtn.addEventListener('click',function(){
 });
 const settingBtn = document.querySelector('#sett-btn');
 const settingPanel = document.querySelector('#sett-nav');
-const settImg = document.querySelectorAll('.tools-icon');
+const settImg = document.getElementsByClassName('tools-icon');
+
+// console.log(settImg[1]);
 
 settingBtn.addEventListener('click', function(event){
-    if(event.target === settingBtn || event.target === settImg[1]|| event.target === settImg[2]|| event.target === settImg[3]|| event.target === settImg[4]){
-        console.log("I am logger");
+    if(event.target === settingBtn || event.target === settImg[1] || event.target === settImg[2] || event.target === settImg[3]){
         settingPanel.classList.toggle('active-nav');
-        console.log('ifpart');
     }
 });
 window.onclick = (e) => {
@@ -27,14 +27,14 @@ window.onclick = (e) => {
             startbox.classList.remove('active-start');
         }
     }
-    if (!e.target.matches('#sett-btn')){
+    if (!e.target.matches('#sett-btn') && !e.target.matches('.tools-icon')){
         if(settingPanel.classList.contains('active-nav')){
             settingPanel.classList.remove('active-nav');
         }
-    }
+    }    
 }
-startbox.addEventListener('click', e => e.stopPropagation());
 settingPanel.addEventListener('click', e => e.stopPropagation());
+startbox.addEventListener('click', e => e.stopPropagation());
 
 function currentTime() {
     let date = new Date(); 
