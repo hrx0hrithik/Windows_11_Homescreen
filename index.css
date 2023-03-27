@@ -517,6 +517,25 @@ width: 50px;
     position: absolute;
     right: 10px;
 }
+
+.rotate-screen{
+    background: #000 url(image/rotate-screen.gif) no-repeat center center;
+    background-size: 50%;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 19;
+    color: white;
+    overflow: hidden;
+    display: none;
+}
+.rotate-screen p{
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    top: 70%;
+}
+
 .pre-text{
     text-align: center;
     font-size: 20px;
@@ -532,7 +551,10 @@ width: 50px;
     color: white;
 }
 
-/* @media screen {
-    min-width: 600px;
-    
-} */
+@media (orientation : portrait){
+
+    .rotate-screen{
+        display: block;
+    }
+
+}

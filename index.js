@@ -2,12 +2,6 @@ const startbox = document.querySelector('#startmenu-box');
 const startbtn = document.querySelector('#start-btn');
 
 startbtn.addEventListener('click',function(){
-//     // if(startbox.style.bottom =="50px"){
-//     //     startbox.style.bottom = "-700px";
-//     // }
-//     // else{
-//     //  startbox.style.bottom = '50px';
-//     // }
     startbox.classList.toggle('active-start');
 });
 const settingBtn = document.querySelector('#sett-btn');
@@ -89,6 +83,8 @@ let formatDate = `${day}-${month}-${year}`;
 // console.log(formatDate);
 document.getElementById("date").textContent = formatDate;
 document.querySelector(".time").title = `${day} ${monthName} ${year}`;
+
+// button color change
 
 const wifiBtn = document.querySelector('#wifi-click');
 const btBtn = document.querySelector('#bt-click');
