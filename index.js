@@ -149,7 +149,7 @@ nightBtn.addEventListener('click', function(){
         startSearch.src = "image/start-search-dark.png";
         searchBtn.style.backgroundImage = "url(image/search-dark.png)";
         localStorage.setItem('theme','dark');
-        liveBg.innerHTML = `<video class="video" autoplay muted loop>
+        liveBg.innerHTML = `<video class="video" preload autoplay muted loop>
         <source src="image/wallpaper-live-dark.mp4" type="video/webm">
         </video>`;
     }
