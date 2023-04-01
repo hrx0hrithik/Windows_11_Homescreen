@@ -551,7 +551,7 @@ width: 50px;
     color: white;
 }
 
-@media (orientation : portrait){
+@media (orientation : portrait) and (max-width:550px) {
 
     .rotate-screen{
         display: block;
