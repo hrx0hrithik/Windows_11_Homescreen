@@ -136,25 +136,42 @@ if(theme){
 
 nightBtn.addEventListener('click', function(){
     nightBtn.classList.toggle('active-btn');
-    body.classList.toggle('light');
-    body.classList.toggle('dark');
+    if (body.classList != 'dark') {
+        body.classList.remove('light');
+        body.classList.add('dark');
+        localStorage.setItem('theme','dark');
+        searchBtn.style.backgroundImage = "url(image/search-dark.png)";
+        startSearch.src = "image/start-search-dark.png";
+        liveBg.innerHTML = `<video class="video" preload autoplay muted loop>
+        <source src="image/wallpaper-live-dark.mp4" type="video/webm">
+        </video>`;
+    }
+    else if (body.classList != 'light' ){
+        body.classList.remove('dark');
+        body.classList.add('light');
+        localStorage.setItem('theme','light');
+        searchBtn.style.backgroundImage = "url(image/search-light.png)";
+        startSearch.src = "image/start-search-light.png";
+        liveBg.innerHTML = " ";
+    }
+});
     // console.log('toggle');
     if(body.classList.contains('dark')){
+        body.classList.remove('light');
         msIcon1.src = "image/microsoft-store-dark.png";
         msIcon2.src = "image/microsoft-store-dark.png";
         startSearch.src = "image/start-search-dark.png";
         searchBtn.style.backgroundImage = "url(image/search-dark.png)";
-        localStorage.setItem('theme','dark');
         liveBg.innerHTML = `<video class="video" preload autoplay muted loop>
         <source src="image/wallpaper-live-dark.mp4" type="video/webm">
         </video>`;
     }
     else{
+        // localStorage.setItem('theme','light');
         msIcon1.src = "image/microsoft-store-light.png";
         msIcon2.src = "image/microsoft-store-light.png";
         startSearch.src = "image/start-search-light.png";
         searchBtn.style.backgroundImage = "url(image/search-light.png)";
-        localStorage.setItem('theme','light');
         liveBg.innerHTML = " ";
     }
-});
+
