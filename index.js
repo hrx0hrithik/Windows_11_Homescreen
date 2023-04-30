@@ -133,6 +133,7 @@ const theme = localStorage.getItem('theme');
 if(theme){
     body.classList.add(theme);
 }
+const nightBtnState = localStorage.getItem('nightBtnState');
 
 nightBtn.addEventListener('click', function(){
     nightBtn.classList.toggle('active-btn');
@@ -158,6 +159,7 @@ nightBtn.addEventListener('click', function(){
     // console.log('toggle');
     if(body.classList.contains('dark')){
         body.classList.remove('light');
+        nightBtn.classList.add('active-btn');
         msIcon1.src = "image/microsoft-store-dark.png";
         msIcon2.src = "image/microsoft-store-dark.png";
         startSearch.src = "image/start-search-dark.png";
