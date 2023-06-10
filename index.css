@@ -7,15 +7,14 @@
     --same:white;
     --bgcl: #afb5b8;
     --text: black;
-    --taskcl: rgba(213, 229, 233, 0.978);
+    --taskcl: rgb(189, 200, 203);
     --hovcolor:rgba(240, 240, 240, 0.955);
     --navbg: rgba(225, 232, 234, 0.919);
     --navbott: rgba(216, 221, 221, 0.945);
     --navbtn: rgb(243, 243, 243);
-    /* transition: 0.5s ease-in-out; */
 }
 .dark{
-    --bg: url('image/wallpaper-live-dark.mp4');
+    /* --bg: url('image/wallpapers-dark.jpg'); */
     --same:black;
     --bgcl: black;
     --text: white;
@@ -24,7 +23,6 @@
     --navbg: rgb(30 30 31 / 96%);
     --navbott: rgb(42, 42, 42);
     --navbtn: rgba(25, 25, 26, 0.96);
-    /* transition: 0.5s ease-in-out; */
 }
 
 *{
@@ -37,7 +35,6 @@
 body{
     background: var(--bg);
     background-color: var(--bgcl);
-    /* background-position: fixed; */
     background-size: cover, cover;
     background-repeat: no-repeat;
     color: var(--text);
@@ -45,25 +42,26 @@ body{
     overflow: hidden;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 510;
-    /* position: fixed; */
 }
 
 .video{
     object-fit: cover;
     width: 100vw;
-    height: 100vh;
+    height: calc(100% - 41px);
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
 }
+.show{
+    display: block;
+    }
 
 .desktop{
     display: grid;
-    grid-template-columns: repeat(10,80px);
+    grid-template-columns: repeat(3,80px);
     grid-template-rows: repeat(8,86px);
     grid-auto-flow: column;
-    /* height: 85hv; */
 }
 
 .desk-icon-div{
@@ -143,7 +141,7 @@ body{
 .task-icon-item{
     height: auto;
     width: 30px;
-    padding: 5px;
+    padding: 5px 0.5em;
     border-radius: 4px;
 }
 .task-icon-item:hover{
@@ -186,10 +184,6 @@ body{
     text-align: end;
 }
 
-/* .show{
-    bottom: 60px;
-} */
-
 .start-box{
     background-color: var(--navbg);
     width: 590px;
@@ -221,12 +215,10 @@ body{
     box-sizing: border-box;
     padding: 12px 20px 12px 40px;
     height: 40px;
-    /* border-bottom: 6px solid cyan; */
     border-radius: 5px;
     background: var(--navbtn);
     color: var(--text);
     border-color: var(--same);
-    /* border: 0.5px solid; */
     background-image: url('image/search-light.png');
     background-size: 18px;
   background-position: 10px 10px; 
@@ -267,7 +259,6 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* padding: 8px 2px; */
     border-radius: 4px;
     width: 95%;
     text-align: center;

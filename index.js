@@ -115,7 +115,7 @@ const searchBtn = document.querySelector('#searchbar');
 const msIcon1 = document.getElementById('microsoft-store1');
 const msIcon2 = document.getElementById('microsoft-store2');
 
-const liveBg = document.querySelector('#video');
+const liveBg = document.querySelector('.video');
 
 airBtn.addEventListener('click', function(){
     airBtn.classList.toggle('active-btn');
@@ -143,9 +143,7 @@ nightBtn.addEventListener('click', function(){
         localStorage.setItem('theme','dark');
         searchBtn.style.backgroundImage = "url(image/search-dark.png)";
         startSearch.src = "image/start-search-dark.png";
-        liveBg.innerHTML = `<video class="video" preload autoplay muted loop>
-        <source src="image/wallpaper-live-dark.mp4" type="video/webm">
-        </video>`;
+        liveBg.style.display="block";
     }
     else if (body.classList != 'light' ){
         body.classList.remove('dark');
@@ -153,27 +151,25 @@ nightBtn.addEventListener('click', function(){
         localStorage.setItem('theme','light');
         searchBtn.style.backgroundImage = "url(image/search-light.png)";
         startSearch.src = "image/start-search-light.png";
-        liveBg.innerHTML = " ";
+        liveBg.classList.remove('show');
+        liveBg.style.display="none";
     }
 });
-    // console.log('toggle');
     if(body.classList.contains('dark')){
         body.classList.remove('light');
         nightBtn.classList.add('active-btn');
+        liveBg.style.display="block"
         msIcon1.src = "image/microsoft-store-dark.png";
         msIcon2.src = "image/microsoft-store-dark.png";
         startSearch.src = "image/start-search-dark.png";
         searchBtn.style.backgroundImage = "url(image/search-dark.png)";
-        liveBg.innerHTML = `<video class="video" preload autoplay muted loop>
-        <source src="image/wallpaper-live-dark.mp4" type="video/webm">
-        </video>`;
+
     }
     else{
-        // localStorage.setItem('theme','light');
+        liveBg.style.display="none"
         msIcon1.src = "image/microsoft-store-light.png";
         msIcon2.src = "image/microsoft-store-light.png";
         startSearch.src = "image/start-search-light.png";
         searchBtn.style.backgroundImage = "url(image/search-light.png)";
-        liveBg.innerHTML = " ";
     }
 

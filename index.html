@@ -10,7 +10,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="index.css">
-    <script defer src="index.js"></script>
 </head>
 
 <body class="light" id="body" tabindex="-1">
@@ -21,7 +20,11 @@
     <div class="rotate-screen">
         <p>Rotate your screen</p>
     </div>
-    <div id="video" tabindex="-1"></div>
+    <div id="video" tabindex="-1">
+        <video class="video" preload autoplay muted loop>
+            <source src="image/wallpaper-live-dark.mp4" type="video/webm">
+            </video>
+    </div>
 
     <div class="desktop" tabindex="-1">
         <div class="desk-icon-div"><img class="desk-icon"
@@ -208,7 +211,7 @@
             </div>
         </div>
     </div>
-
+    <script src="index.js"></script>
     <script>
         var loader = document.getElementById('preloader');
         window.addEventListener('load', function () {
