@@ -12,6 +12,7 @@
     --navbg: rgba(225, 232, 234, 0.919);
     --navbott: rgba(216, 221, 221, 0.945);
     --navbtn: rgb(243, 243, 243);
+    --gray: #d5d5d5;
 }
 .dark{
     /* --bg: url('image/wallpapers-dark.jpg'); */
@@ -23,6 +24,7 @@
     --navbg: rgb(30 30 31 / 96%);
     --navbott: rgb(42, 42, 42);
     --navbtn: rgba(25, 25, 26, 0.96);
+    --gray: #353535;
 }
 
 *{
@@ -384,7 +386,7 @@ body{
     display: flex;
     width: 370px;
     position: absolute;
-    right: 25px;
+    right: 1em;
     bottom: -400px;
     flex-direction: column;
     align-items: center;
@@ -476,10 +478,86 @@ width: 50px;
     flex-direction: row;
     align-items: center;
 }
-.range{
+input[type=range].range {
     width: 80%;
-    padding: 15px 0px;
-}
+    background: transparent;
+    -webkit-appearance: none;
+  }
+  
+  /*progress support*/
+  input[type=range].range.slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 2em + var(--ratio) * (100% - 2em));
+  }
+  
+  input[type=range].range:focus {
+    outline: none;
+  }
+  
+  /*webkit*/
+  input[type=range].range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 5px;
+    height: 5px;
+    border-radius: 15px;
+    color: #3ecbfa;
+    border: 5px solid #3ecbfa;
+    box-shadow: 0 0 0 4px var(--gray);
+    margin-top: -3px;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  input[type=range].range::-webkit-slider-runnable-track {
+    height: 6px;
+    border: none;
+    border-radius: 10px;
+    background: #EFEFEF;
+    box-shadow: none;
+  }
+  
+  input[type=range].range::-webkit-slider-thumb:hover {
+    background: #41BAD1;
+    border: 7px solid #3ecbfa;
+    box-shadow: 0 0 0 2px var(--gray);
+    transition: all 0.1s ease-in-out;
+  }
+  
+  input[type=range].range.slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(#3ecbfa,#3ecbfa) 0/var(--sx) 100% no-repeat, #EFEFEF;
+  }
+
+  /* Mozila */
+  input[type=range].range::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    background: #3ecbfa;
+    border: 5px solid var(--gray);
+    transition: all 0.2s ease-in-out;
+    /* box-shadow: 0 0 1px #FFFFFF; */
+  }
+  
+  input[type=range].range::-moz-range-track {
+    height: 5px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  input[type=range].range::-moz-range-thumb:hover {
+    background: #3ecbfa;
+    width: 13px;
+    height: 13px;
+    border: 3px solid var(--gray);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  input[type=range].range.slider-progress::-moz-range-track {
+    background: linear-gradient(#3ecbfa,#3ecbfa) 0/var(--sx) 100% no-repeat, #EFEFEF;
+  }
+
 .nav-icon-div:hover , .wifi-bt-mor:hover, .wifi-btn:hover, .bt-btn:hover{
     background-color: var(--hovcolor);
 }
