@@ -4,6 +4,29 @@ const startbtn = document.querySelector("#start-btn");
 startbtn.addEventListener("click", function () {
   startbox.classList.toggle("active-start");
 });
+
+// all apps
+
+function showAllApps() {
+const allAppsBtn = document.querySelector("#all-apps-btn");
+const allApps = document.querySelector("#all-apps");
+const startFrame = document.querySelector("#start-frame");
+
+startFrame.style.transform="translateX(-100%)";
+allApps.style.transform="translateX(0%)";
+}
+
+// all apps back
+
+function backAllApps(){
+  const allApps = document.querySelector("#all-apps");
+  const startFrame = document.querySelector("#start-frame");
+  startFrame.style.transform="translateX(0%)";
+allApps.style.transform="translateX(100%)";
+}
+
+
+
 const settingBtn = document.querySelector("#sett-btn");
 const settingPanel = document.querySelector("#sett-nav");
 const settImg = document.getElementsByClassName("tools-icon");

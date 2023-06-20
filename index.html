@@ -23,7 +23,7 @@
     <div id="video" tabindex="-1">
         <video class="video" preload autoplay muted loop>
             <source src="image/wallpaper-live-dark.mp4" type="video/webm">
-            </video>
+        </video>
     </div>
 
     <div class="desktop" tabindex="-1">
@@ -52,78 +52,99 @@
                 <input class="searchbar" id="searchbar" type="text" placeholder="Type here to search"
                     style="border-bottom: 2px solid cyan;">
             </div>
-            <div class="all-apps">
-
-            </div>
-            <div class="start-item-title">
-                <span class="pinned">Pinned</span><button class="start-all-apps">All apps &#160<i
-                        class="bi bi-chevron-right"></i></button>
-            </div>
-            <div class="start-item">
-                <div class="start-icon-div"><img class="start-icon" title="Microsoft Store"
-                        src="image/microsoft-store-light.png" id="microsoft-store2">Microsoft Store</div>
-                <div class="start-icon-div"><img class="start-icon" title="Setting" src="image/settings.png">Settings
+            <div class="start-frame" id="start-frame">
+                <div class="start-item-title">
+                    <span class="pinned">Pinned</span><button class="start-all-apps" onclick="showAllApps()">All apps
+                        <i class="bi bi-chevron-right"></i></button>
                 </div>
-                <div class="start-icon-div"><img class="start-icon" title="Adobe Photoshop"
-                        src="image/adobe-photoshop.png">Adobe Photoshop</div>
-                <div class="start-icon-div"><img class="start-icon" title="Calculator"
-                        src="image/calculator.png">Calculator</div>
-                <div class="start-icon-div"><img class="start-icon" title="Camera" src="image/camera.png">Camera</div>
-                <div class="start-icon-div"><img class="start-icon" title="Google Chrome" src="image/chrome.png">Google
-                    Chrome</div>
-                <div class="start-icon-div"><img class="start-icon" title="File Explorer"
-                        src="image/file-explorer.png">File Explorer</div>
-                <div class="start-icon-div"><img class="start-icon" title="Github" src="image/github.png">Github</div>
-                <div class="start-icon-div"><img class="start-icon" title="Tips" src="image/microsoft-tips.png">Tips
+                <div class="start-item">
+                    <div class="start-icon-div"><img class="start-icon" title="Microsoft Store"
+                            src="image/microsoft-store-light.png" id="microsoft-store2">Microsoft Store</div>
+                    <div class="start-icon-div"><img class="start-icon" title="Setting"
+                            src="image/settings.png">Settings
+                    </div>
+                    <div class="start-icon-div"><img class="start-icon" title="Adobe Photoshop"
+                            src="image/adobe-photoshop.png">Adobe Photoshop</div>
+                    <div class="start-icon-div"><img class="start-icon" title="Calculator"
+                            src="image/calculator.png">Calculator</div>
+                    <div class="start-icon-div"><img class="start-icon" title="Camera" src="image/camera.png">Camera
+                    </div>
+                    <div class="start-icon-div"><img class="start-icon" title="Google Chrome"
+                            src="image/chrome.png">Google
+                        Chrome</div>
+                    <div class="start-icon-div"><img class="start-icon" title="File Explorer"
+                            src="image/file-explorer.png">File Explorer</div>
+                    <div class="start-icon-div"><img class="start-icon" title="Github" src="image/github.png">Github
+                    </div>
+                    <div class="start-icon-div"><img class="start-icon" title="Tips" src="image/microsoft-tips.png">Tips
+                    </div>
+                    <div class="start-icon-div"><img class="start-icon" title="Todo" src="image/microsoft-todo.png">Todo
+                    </div>
+                    <div class="start-icon-div"><img class="start-icon" title="VS Code"
+                            src="image/visual-studio-code.png">VS Code</div>
+                    <div class="start-icon-div"><img class="start-icon" title="Microsoft Edge"
+                            src="image/microsoft-edge.png">Microsoft Edge</div>
+                    <div class="start-icon-div"><img class="start-icon" title="Notepad" src="image/notepad.png">Notepad
+                    </div>
                 </div>
-                <div class="start-icon-div"><img class="start-icon" title="Todo" src="image/microsoft-todo.png">Todo
+                <div class="rec-title">
+                    <span class="pinned">Recommended</span><button class="start-all-apps">More <i
+                            class="bi bi-chevron-right"></i></button>
                 </div>
-                <div class="start-icon-div"><img class="start-icon" title="VS Code"
-                        src="image/visual-studio-code.png">VS Code</div>
-                <div class="start-icon-div"><img class="start-icon" title="Microsoft Edge"
-                        src="image/microsoft-edge.png">Microsoft Edge</div>
-                <div class="start-icon-div"><img class="start-icon" title="Notepad" src="image/notepad.png">Notepad
+                <div class="rec-div">
+                    <ul class="rec-list">
+                        <li class="rec-item"><img class="rec-icon" src="image/chrome.png">
+                            <div>Chrome<br>
+                                <p class="rec-txt">Recent tabs</p>
+                            </div>
+                        </li>
+                        <li class="rec-item"><img class="rec-icon" src="image/visual-studio-code.png">
+                            <div>VS Code<br>
+                                <p class="rec-txt">Recent file</p>
+                            </div>
+                        </li>
+                        <li class="rec-item"><img class="rec-icon" src="image/image-file.png">
+                            <div>joy.png<br>
+                                <p class="rec-txt">image file</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="rec-list">
+                        <li class="rec-item"><img class="rec-icon" src="image/adobe-photoshop.png">
+                            <div>New Pics<br>
+                                <p class="rec-txt">adobe file</p>
+                            </div>
+                        </li>
+                        <li class="rec-item"><img class="rec-icon" src="image/image-file.png">
+                            <div>my image.jpg<br>
+                                <p class="rec-txt">Image file</p>
+                            </div>
+                        </li>
+                        <li class="rec-item"><img class="rec-icon" src="image/icons8-java-48.png">
+                            <div>Java new<br>
+                                <p class="rec-txt">Java file</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <div class="rec-title">
-                <span class="pinned">Recommended</span><button class="start-all-apps">More &#160<i
-                        class="bi bi-chevron-right"></i></button>
-            </div>
-            <div class="rec-div">
-                <ul class="rec-list">
-                    <li class="rec-item"><img class="rec-icon" src="image/chrome.png">
-                        <div>Chrome<br>
-                            <p class="rec-txt">Recent tabs</p>
-                        </div>
-                    </li>
-                    <li class="rec-item"><img class="rec-icon" src="image/visual-studio-code.png">
-                        <div>VS Code<br>
-                            <p class="rec-txt">Recent file</p>
-                        </div>
-                    </li>
-                    <li class="rec-item"><img class="rec-icon" src="image/image-file.png">
-                        <div>joy.png<br>
-                            <p class="rec-txt">image file</p>
-                        </div>
-                    </li>
-                </ul>
-                <ul class="rec-list">
-                    <li class="rec-item"><img class="rec-icon" src="image/adobe-photoshop.png">
-                        <div>New Pics<br>
-                            <p class="rec-txt">adobe file</p>
-                        </div>
-                    </li>
-                    <li class="rec-item"><img class="rec-icon" src="image/image-file.png">
-                        <div>my image.jpg<br>
-                            <p class="rec-txt">Image file</p>
-                        </div>
-                    </li>
-                    <li class="rec-item"><img class="rec-icon" src="image/icons8-java-48.png">
-                        <div>Java new<br>
-                            <p class="rec-txt">Java file</p>
-                        </div>
-                    </li>
+            <div id="all-apps" class="all-apps">
+                <div class="start-item-title">
+                    <span class="pinned">All apps</span><button class="start-all-apps" onclick="backAllApps()"><i class="bi bi-chevron-left"></i> Back</button>
+                </div>
+                <ul class="all-apps-list" style="list-style-type:none;">
+                    <li>A</li>
+                    <li><img class="all-apps-list-icon" src="image/adobe-photoshop.png">Adobe Photoshop</li>
+                    <li><img class="all-apps-list-icon" src="image/calculator.png">Calculator</li>
+                    <li><img class="all-apps-list-icon" src="image/camera.png">Camera</li>
+                    <li><img class="all-apps-list-icon" src="image/file-explorer.png">File Explorer</li>
+                    <li><img class="all-apps-list-icon" src="image/github.png">Git Desktop</li>
+                    <li><img class="all-apps-list-icon" src="image/icons8-java-48.png">Java</li>
+                    <li><img class="all-apps-list-icon" src="image/microsoft-edge.png">Microsoft Edge</li>
+                    <li><img class="all-apps-list-icon" src="image/microsoft-store-light.png">Microsoft Store</li>
+                    <li><img class="all-apps-list-icon" src="image/notepad.png">Notepad</li>
+                    <li><img class="all-apps-list-icon" src="image/recycle-bin.png">Recycle Bin</li>
+                    <li><img class="all-apps-list-icon" src="image/visual-studio-code.png">VS Code</li>
                 </ul>
             </div>
             <div class="start-bottom">
@@ -160,7 +181,7 @@
                         style="font-size: 19px;transform: rotate(90deg);">battery_saver</span></button>Battery saver
             </div>
             <div class="nav-items">
-                <button id="night" class="nav-icon-div"><i class="bi bi-moon-stars-fill"></i></button>Night light
+                <button id="night" class="nav-icon-div"><i class="bi bi-moon-stars-fill"></i></button>Night theme
             </div>
             <div class="nav-items">
                 <button id="access" class="nav-icon-div"><i class="bi bi-universal-access"><i
@@ -169,18 +190,23 @@
         </div>
         <div class="slider">
             <div class="slide-item">
-                <i id="brightness-icon" class="bi bi-brightness-low" style="font-size: 16px;"></i>&nbsp;&nbsp;&nbsp;<input id="brightness" class="range slider-progress"
+                <i id="brightness-icon" class="bi bi-brightness-low"
+                    style="font-size: 16px;"></i>&nbsp;&nbsp;&nbsp;<input id="brightness" class="range slider-progress"
                     type="range" min="0" max="100">
             </div>
             <div class="slide-item">
-                <i id="volume-icon" class="bi bi-volume-up tools-icon"></i>&nbsp;<input id="volume" class="range slider-progress" type="range" min="0" max="100">&nbsp;&nbsp;
-                <i class="bi bi-speaker" style="font-size: 14px;transform: rotate(180deg);"></i>&nbsp;<i class="bi bi-chevron-right"></i>
+                <i id="volume-icon" class="bi bi-volume-up tools-icon"></i>&nbsp;<input id="volume"
+                    class="range slider-progress" type="range" min="0" max="100">&nbsp;&nbsp;
+                <i class="bi bi-speaker" style="font-size: 14px;transform: rotate(180deg);"></i>&nbsp;<i
+                    class="bi bi-chevron-right"></i>
             </div>
         </div>
         <div class="nav-bottom">
-            <div class="nav-batt nav-bottom-icon"><i id="battery-icon" class="bi bi-battery-half"></i><span class="battery-level">50</span>%
+            <div class="nav-batt nav-bottom-icon"><i id="battery-icon" class="bi bi-battery-half"></i><span
+                    class="battery-level">50</span>%
             </div>
-            <div class="nav-edit"><i class="bi bi-pencil nav-bottom-icon"></i><i class="bi bi-gear nav-bottom-icon"></i></div>
+            <div class="nav-edit"><i class="bi bi-pencil nav-bottom-icon"></i><i class="bi bi-gear nav-bottom-icon"></i>
+            </div>
         </div>
     </div>
     <div class="taskbar">
@@ -205,7 +231,8 @@
             <div class="sett" id="sett-btn">
                 <i class="bi bi-wifi tools-icon" title="Internet access"></i>
                 <i id="task-volume-icon" class="bi bi-volume-up tools-icon" title="Speaker: 100%"></i>
-                <i id="task-battery-icon" class="bi bi-battery-half tools-icon" title="Battery status: 50% remaining"></i>
+                <i id="task-battery-icon" class="bi bi-battery-half tools-icon"
+                    title="Battery status: 50% remaining"></i>
             </div>
             <div class="time">
                 <p class="dnt"><span id="time"> </span><br><span id="date"></span></p>

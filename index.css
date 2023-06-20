@@ -189,7 +189,7 @@ body{
 .start-box{
     background-color: var(--navbg);
     width: 590px;
-    height: auto;
+    height: 89vh;
     position: absolute;
     z-index: 3;
     bottom: -700px;
@@ -197,6 +197,7 @@ body{
     margin: 2px;
     border-radius: 10px;
     opacity: 0;
+    overflow: hidden;
     transition: all 0.3s ease-in;
     transform: translate(-50%,-0%)
 }
@@ -230,6 +231,12 @@ body{
 }
 .searchbar:focus-visible{
     outline: none;
+}
+
+.start-frame{
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    /* transform: translate(-100%,-0%); */
 }
 
 .start-item-title{
@@ -296,6 +303,27 @@ body{
     background-color: var(--hovcolor);
 }
 
+.all-apps{
+    /* overflow: scroll; */
+    position: absolute;
+    top: 11vh;
+    /* left: 1vw; */
+    width: 590px;
+    transition: all 0.4s ease-in-out;
+    transform: translate(100%,-0%);
+}
+
+.all-apps-list{
+    padding: 2vh 4vw;
+    width: 85%;
+}
+
+.all-apps-list-icon{
+    height: 4vh;
+    margin: 0px 5px;
+}
+
+
 .rec-div{
     display: flex;
     justify-content: space-around;
@@ -341,9 +369,11 @@ body{
     justify-content: space-between;
     height: 60px;
     background-color: var(--navbott);
-    border-top: 1px solid inherit;
+    /* border-top: 1px solid inherit; */
     border-radius: 0px 0px 10px 10px;
     align-items: center;
+    position: sticky;
+bottom: 0px;
 }
 .user-btn{
     background: transparent;
