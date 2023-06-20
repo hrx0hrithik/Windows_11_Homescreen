@@ -198,7 +198,49 @@ for (let e of document.querySelectorAll(
   e.addEventListener("input", () => e.style.setProperty("--value", e.value));
 }
 
+function updateVolume(){
+
+let volume = document.querySelector("#volume");
+let volIcon = document.querySelector("#volume-icon");
+let taskVolIcon = document.querySelector("#task-volume-icon");
+let volValue = volume.style.getPropertyValue("--value");
+
+volume.title = volValue;
+
+if(volValue<= 55 && volValue> 0){
+  volIcon.classList.remove("bi-volume-up")
+  taskVolIcon.classList.remove("bi-volume-up")
+  volIcon.classList.remove("bi-volume-mute");
+  taskVolIcon.classList.add("bi-volume-down")
+  volIcon.classList.add("bi-volume-down")
+}
+else if(volValue == 0 ){
+  taskVolIcon.classList.remove("bi-volume-down");
+  volIcon.classList.remove("bi-volume-down");
+  taskVolIcon.classList.add("bi-volume-mute");
+  volIcon.classList.add("bi-volume-mute");
+}
+ if(volValue>55){
+  taskVolIcon.classList.remove("bi-volume-down");
+  volIcon.classList.remove("bi-volume-down");
+  taskVolIcon.classList.remove("bi-volume-mute");
+  volIcon.classList.remove("bi-volume-mute");
+  taskVolIcon.classList.add("bi-volume-up");
+  volIcon.classList.add("bi-volume-up");
+}
+
+taskVolIcon.title=`Speaker: ${volValue}%`;
+// console.log(volValue)
+
+let t = setTimeout(function () {
+  updateVolume();
+}, 400);
+}
+updateVolume();
+
 const battIndicator = document.querySelector(".battery-level");
+const taskBattIcon = document.querySelector("#task-battery-icon");
+const battIcon = document.querySelector("#battery-icon");
 navigator.getBattery().then((battery) => {
     function updateAllBatteryInfo() {
       updateChargeInfo();
@@ -211,6 +253,12 @@ navigator.getBattery().then((battery) => {
     });
     function updateChargeInfo() {
       console.log(`Battery charging? ${battery.charging ? "Yes" : "No"}`);
+      if(battery.charging){
+        battIcon.classList.remove("bi-battery-half")
+        taskBattIcon.classList.remove("bi-battery-half")
+        battIcon.classList.add("bi-battery-charging")
+        taskBattIcon.classList.add("bi-battery-charging")
+      }
     }
   
     battery.addEventListener("levelchange", () => {
@@ -220,6 +268,8 @@ navigator.getBattery().then((battery) => {
       // console.log(`Battery level: ${battery.level * 100}%`);
       let batteryLevel = (battery.level * 100);
       battIndicator.innerHTML = batteryLevel;
+      taskBattIcon.title=`Battery status: ${batteryLevel}% remaining`;
+      console.log(batteryLevel);
     }
   });
   

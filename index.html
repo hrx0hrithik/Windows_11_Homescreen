@@ -169,18 +169,18 @@
         </div>
         <div class="slider">
             <div class="slide-item">
-                <i class="bi bi-brightness-low" style="font-size: 16px;"></i>&nbsp;&nbsp;&nbsp;<input class="range slider-progress"
-                    type="range" min="0" max="100" value="50">
+                <i id="brightness-icon" class="bi bi-brightness-low" style="font-size: 16px;"></i>&nbsp;&nbsp;&nbsp;<input id="brightness" class="range slider-progress"
+                    type="range" min="0" max="100">
             </div>
             <div class="slide-item">
-                <i class="bi bi-volume-up tools-icon"></i>&nbsp;<input class="range slider-progress" type="range" min="0" max="100"
-                    value="100">&nbsp;&nbsp;<i class="bi bi-speaker"></i>&nbsp;<i class="bi bi-chevron-right"></i>
+                <i id="volume-icon" class="bi bi-volume-up tools-icon"></i>&nbsp;<input id="volume" class="range slider-progress" type="range" min="0" max="100">&nbsp;&nbsp;
+                <i class="bi bi-speaker" style="font-size: 14px;transform: rotate(180deg);"></i>&nbsp;<i class="bi bi-chevron-right"></i>
             </div>
         </div>
         <div class="nav-bottom">
-            <div class="nav-batt"><i class="bi bi-battery-half"></i><span class="battery-level">50</span>%
+            <div class="nav-batt nav-bottom-icon"><i id="battery-icon" class="bi bi-battery-half"></i><span class="battery-level">50</span>%
             </div>
-            <div class="nav-edit"><i class="bi bi-pencil"></i><i class="bi bi-gear"></i></div>
+            <div class="nav-edit"><i class="bi bi-pencil nav-bottom-icon"></i><i class="bi bi-gear nav-bottom-icon"></i></div>
         </div>
     </div>
     <div class="taskbar">
@@ -204,8 +204,8 @@
         <div class="taskbar-tools">
             <div class="sett" id="sett-btn">
                 <i class="bi bi-wifi tools-icon" title="Internet access"></i>
-                <i class="bi bi-volume-up tools-icon" title="Speaker: 100%"></i>
-                <i class="bi bi-battery-half tools-icon" title="Battery status: 50% remaining"></i>
+                <i id="task-volume-icon" class="bi bi-volume-up tools-icon" title="Speaker: 100%"></i>
+                <i id="task-battery-icon" class="bi bi-battery-half tools-icon" title="Battery status: 50% remaining"></i>
             </div>
             <div class="time">
                 <p class="dnt"><span id="time"> </span><br><span id="date"></span></p>

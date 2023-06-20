@@ -477,6 +477,7 @@ width: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 10px 0;
 }
 input[type=range].range {
     width: 80%;
@@ -571,21 +572,34 @@ input[type=range].range {
 }
 .nav-bottom{
     display: flex;
-    width: 96%;
+    width: 100%;
     justify-content: space-between;
     background-color: var(--navbott);
     height: 40px;
     align-items: center;
-    padding: 7px;
+    padding: 4px 0px;
     border-radius: 0 0 8px 8px;
 }
+.nav-bottom-icon{
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.nav-bottom-icon:hover{
+    background-color: var(--hovcolor);
+}
 .nav-batt{
-    left: 18px;
+    left: 5px;
     position: absolute;
+}
+.battery-level{
+    font-weight: initial;
+    font-size: 12px;
+    margin-left: 3px;
 }
 .nav-edit{
     position: absolute;
-    right: 10px;
+    right: 5px;
 }
 
 .rotate-screen{
