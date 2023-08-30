@@ -8,20 +8,19 @@
     --bgcl: #afb5b8;
     --text: black;
     --taskcl: rgb(189, 200, 203);
-    --hovcolor:rgba(240, 240, 240, 0.955);
-    --navbg: rgba(225, 232, 234, 0.919);
-    --navbott: rgba(216, 221, 221, 0.945);
+    --hovcolor:rgba(240, 240, 240, 0.938);
+    --navbg: rgba(255, 255, 255, 0.57);
+    --navbott: rgba(231, 245, 255, 0.514);
     --navbtn: rgb(243, 243, 243);
     --gray: #d5d5d5;
 }
 .dark{
-    /* --bg: url('image/wallpapers-dark.jpg'); */
     --same:black;
     --bgcl: black;
     --text: white;
     --taskcl:rgb(33 32 32 / 93%);
     --hovcolor: rgba(79, 78, 78, 0.384);
-    --navbg: rgb(30 30 31 / 96%);
+    --navbg: rgba(32, 32, 32, 0.8);
     --navbott: rgb(42, 42, 42);
     --navbtn: rgba(25, 25, 26, 0.96);
     --gray: #353535;
@@ -31,13 +30,12 @@
     margin: 0px;
     padding: 0px;
     cursor:default;
-    /* border: 1px solid black; */
 }
 
 body{
     background: var(--bg);
     background-color: var(--bgcl);
-    background-size: cover, cover;
+    background-size: cover;
     background-repeat: no-repeat;
     color: var(--text);
     font-size: 12px;
@@ -45,11 +43,13 @@ body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 510;
 }
-
+/* video::-webkit-media-controls {
+    display: none;
+  } */
 .video{
     object-fit: cover;
     width: 100vw;
-    height: calc(100% - 41px);
+    height: calc(100% - 46px);
     position: fixed;
     top: 0;
     left: 0;
@@ -84,9 +84,6 @@ body{
 .desk-icon{
     width: 40px;
 }
-/* .desk-icon:focus-within{
-    outline-color:cornflowerblue;
-} */
 
 .icon-text{
     text-align: center;
@@ -104,7 +101,7 @@ body{
     bottom: 0px;
     width: 100%;
     z-index: 3;
-    height: 40px;
+    height: 45px;
     padding: 0px 2px 2px 2px;
     justify-items: center;
     align-items: center;
@@ -150,6 +147,10 @@ body{
     background-color: var(--hovcolor);
 }
 
+.task-icon-active{
+    background-color: var(--hovcolor);
+}
+
 .taskbar-tools{
     position: absolute;
     right: 10px;
@@ -187,19 +188,21 @@ body{
 }
 
 .start-box{
-    background-color: var(--navbg);
+    background: var(--navbg) ;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    backdrop-filter: blur(30px);
     width: 590px;
-    height: 89vh;
+    height: 650px;
     position: absolute;
     z-index: 3;
     bottom: -700px;
     left:50%;
-    margin: 2px;
     border-radius: 10px;
     opacity: 0;
     overflow: hidden;
-    transition: all 0.3s ease-in;
-    transform: translate(-50%,-0%)
+    transition: all 0.3s;
+    transform: translate(-50%,-0%);
 }
 .active-start{
     opacity: 1;
@@ -236,7 +239,6 @@ body{
 .start-frame{
     position: relative;
     transition: all 0.4s ease-in-out;
-    /* transform: translate(-100%,-0%); */
 }
 
 .start-item-title{
@@ -252,7 +254,6 @@ body{
     grid-template-columns: repeat(6,90px);
     grid-template-rows: repeat(3,78px);
     grid-row-gap: 0px;
-    /* grid-column-gap: 4px; */
     justify-items: center;  
     position: relative;
     left: 13px;
@@ -261,7 +262,6 @@ body{
 .start-icon{
     height: auto;
     width: 38px;
-    /* padding-bottom: 4px; */
 }
 .start-icon-div{
     display: flex;
@@ -304,10 +304,8 @@ body{
 }
 
 .all-apps{
-    /* overflow: scroll; */
     position: absolute;
     top: 11vh;
-    /* left: 1vw; */
     width: 590px;
     transition: all 0.4s ease-in-out;
     transform: translate(100%,-0%);
@@ -316,13 +314,29 @@ body{
 .all-apps-list{
     padding: 2vh 4vw;
     width: 85%;
+    height: 430px;
+    overflow: scroll;
 }
 
 .all-apps-list-icon{
     height: 4vh;
-    margin: 0px 5px;
+    margin: 0px 15px 0px 10px;
+}
+.start-list-item.start-list-alphabet{
+    padding-left: 15px;
 }
 
+.start-list-item{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 30px;
+    padding: 4px 0px;
+    border-radius: 4px;
+}
+.start-list-item:hover{
+    background-color: var(--hovcolor);
+}
 
 .rec-div{
     display: flex;
@@ -369,11 +383,10 @@ body{
     justify-content: space-between;
     height: 60px;
     background-color: var(--navbott);
-    /* border-top: 1px solid inherit; */
     border-radius: 0px 0px 10px 10px;
     align-items: center;
     position: sticky;
-bottom: 0px;
+    bottom: 0px;
 }
 .user-btn{
     background: transparent;
@@ -409,10 +422,11 @@ bottom: 0px;
     background-color: var(--hovcolor);
 }
 
-/* Navigation Pannel Right */
+/* Navigation Pannel Bottom */
 
 .sett-nav{
     background-color:var(--navbg);
+    backdrop-filter: blur(40px);
     display: flex;
     width: 370px;
     position: absolute;
@@ -458,9 +472,9 @@ bottom: 0px;
     color: var(--text);
     padding: 10px;
     font-size: 14px;
-margin-right: -4px;
-height: 50px;
-width: 50px;
+    margin-right: -4px;
+    height: 50px;
+    width: 50px;
 }
 .wifi-btn{
     background-color: var(--navbtn);
@@ -469,9 +483,9 @@ width: 50px;
     color: var(--text);
     padding: 10px;
     font-size: 14px;
-margin-right: -4px;
-height: 50px;
-width: 50px;
+    margin-right: -4px;
+    height: 50px;
+    width: 50px;
 }
 .bt-btn{
     background-color: var(--navbtn);
@@ -566,7 +580,6 @@ input[type=range].range {
     background: #3ecbfa;
     border: 5px solid var(--gray);
     transition: all 0.2s ease-in-out;
-    /* box-shadow: 0 0 1px #FFFFFF; */
   }
   
   input[type=range].range::-moz-range-track {
@@ -631,6 +644,208 @@ input[type=range].range {
     position: absolute;
     right: 5px;
 }
+
+/* Notification Panal Right */
+
+.right-notification-calendar-panel{
+    position: absolute;
+    height: auto;
+    width: 340px;
+    z-index: 5;
+    bottom: 46px;
+    right: -360px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0 10px;
+    opacity: 0;
+    transition: all 0.25s ;
+}
+.active-noti-panel{
+    opacity: 1;
+    right: 0;
+}
+
+.notification-tab{
+    background-color: var(--navbg);
+    backdrop-filter: blur(50px);
+    color: var(--text);
+    margin: 5px;
+    padding: 5px;
+    border-radius: 6px;
+}
+.notification-head{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 14px;
+}
+.notification-snoze-btn{
+    padding: 4px;
+    background-color: var(--navbg);
+    color: var(--text);
+    border: none
+}
+.notification-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 180px;
+}
+
+.calendar-tab{
+    background-color: var(--navbg);
+    backdrop-filter: blur(50px);
+    color: var(--text);
+    margin: 5px;
+    border-radius: 6px;
+    height: auto;
+}
+.calendar-head , .calendar-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    font-size: 14px;
+}
+
+.calendar-body{
+    height: 320px;
+    background-color: var(--navbott);
+    transition: all 0.3s linear;
+    overflow: hidden;
+}
+.calender-body-month{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+}
+.calender-month-btn{
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: var(--text);
+}
+.calender-month-btn:hover{
+    background-color: var(--hovcolor);
+}
+.calendar-body-weekdays{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: 5px 0;
+    font-weight: bold;
+    justify-items: center;
+    align-items: center;
+}
+.calender-body-dates{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    align-items: center;
+    margin: 5px;
+}
+.date-cell{
+    font-size: 14px;
+    font-weight: 400;
+    padding: 13px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.date-cell:hover{
+    background-color: var(--hovcolor);
+}
+
+.today{
+    background-color:lightblue;
+    color: black;
+}
+.today:hover{
+    background-color:rgb(142, 176, 188);
+}
+.calendar-footer{
+    border-top: 2px solid var(--gray);
+    background-color: var(--navbott);
+}
+.focus-btn{
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    background-color: var(--navbg);
+    color: var(--text);
+}
+
+.active-calender{
+    height: 0;
+}
+
+/* Canvas Container Testing */
+
+.canvas-container{
+    height: auto;
+    width: 500px;
+    position: absolute;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    background-color: var(--bgcl);
+    backdrop-filter: blur(30px);
+    /* transform: translate( 100%, 50%); */
+    z-index: 3;
+    top: 20vh;
+    left: 35vw;
+    display: none;
+}
+
+#canvas-head{
+    height: 25px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+}
+.canvas-close-btn{
+    border: none;
+    color: var(--text);
+    padding: 5px;
+    background: transparent;
+}
+.canvas-close-btn:hover{
+    background-color: var(--navbtn);
+}
+.bi-x-lg{
+    position: relative;
+    right: 0;
+}
+
+
+#vid{
+    width: 99%;
+    height: 90%;
+    object-fit: cover;
+    border: 3px solid var(--gray);
+    border-radius: 5px;
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+}
+
+#textArea{
+    position: relative;
+    left: 1px;
+    max-width: 99%;
+    min-height: 240px;
+    border-radius: 5px;
+    resize: none;
+    overflow: scroll;
+}
+
+/* Pre-loader Screen */
 
 .rotate-screen{
     background: #000 url(image/rotate-screen.gif) no-repeat center center;
