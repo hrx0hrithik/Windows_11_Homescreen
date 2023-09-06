@@ -1,0 +1,38 @@
+body{
+    background-color: white;
+    /* display: flex;
+    justify-content: space-evenly; */
+  }
+  .disk-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 44px;
+    margin-right: 20px;
+    position: relative;
+    top: 15px;
+  }
+  .disk-body{
+    min-width: 75%;
+  }
+  h3{
+    margin-bottom: 5px;
+  }
+  .progress-container {
+    margin: 20px;
+    /* min-width: 30vw; */
+    display: flex;
+  }
+  .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+  }
+  .progress-fill {
+    height: 100%;
+    background-color: #33A0FF;
+    transition: width 0.5s;
+  }
+  .bi-info-circle{
+    font-size: 14px;
+  }

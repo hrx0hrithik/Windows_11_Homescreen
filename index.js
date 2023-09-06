@@ -1,8 +1,14 @@
 const startbox = document.querySelector("#startmenu-box");
 const startbtn = document.querySelector("#start-btn");
+let startIsOpen = false
 
 startbtn.addEventListener("click", function () {
   startbox.classList.toggle("active-start");
+  if(startbox.classList.contains('active-start')){
+    startIsOpen = true
+  }else{
+    startIsOpen = false;
+  }
 });
 
 // all apps
@@ -25,9 +31,12 @@ function backAllApps() {
   allApps.style.transform = "translateX(100%)";
 }
 
+// Navigation panel
+
 const settingBtn = document.querySelector("#sett-btn");
 const settingPanel = document.querySelector("#sett-nav");
 const settImg = document.getElementsByClassName("tools-icon");
+let settingPanelIsOpen = false
 
 // console.log(settImg[1]);
 
@@ -47,6 +56,11 @@ settingBtn.addEventListener("click", function (event) {
     event.target === settingBtn || event.target.closest("#sett-btn")
   ) {
     settingPanel.classList.toggle("active-nav");
+    if (settingPanel.classList.contains("active-nav")){
+      settingPanelIsOpen = true
+    }else{
+      settingPanelIsOpen = false
+    }
   }
 });
 
@@ -55,6 +69,9 @@ window.onclick = (e) => {
   if (!e.target.matches(".start-btn")) {
     if (startbox.classList.contains("active-start")) {
       startbox.classList.remove("active-start");
+    }
+    if (startIsOpen){
+      backAllApps()
     }
   }
   if (!e.target.matches("#sett-btn") && !e.target.matches(".tools-icon")) {
@@ -67,7 +84,9 @@ window.onclick = (e) => {
       rightPanel.classList.remove('active-noti-panel')
     }
   }
+
 };
+
 settingPanel.addEventListener("click", (e) => e.stopPropagation());
 startbox.addEventListener("click", (e) => e.stopPropagation());
 
@@ -91,15 +110,11 @@ function currentTime() {
   let time = hh + ":" + mm + " " + session;
 
   document.getElementById("time").textContent = time;
-  // console.log(time);
   let t = setTimeout(function () {
     currentTime();
   }, 15000);
 }
 currentTime();
-
-// var time = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
-// document.getElementById("time").textContent = time;
 
 const monthArr = [
   "January",
@@ -115,15 +130,14 @@ const monthArr = [
   "November",
   "December",
 ];
-// var date = new Date().toLocaleDateString();
 let objectDate = new Date();
 let day = objectDate.getDate();
+let day0 = objectDate.getDate();
 let month1 = objectDate.getMonth();
 let month = month1 + 1;
 let monthName = monthArr[objectDate.getMonth()];
 
 let year = objectDate.getFullYear();
-// console.log(year);
 if (day < 10) {
   day = "0" + day;
 }
@@ -133,7 +147,6 @@ if (month < 10) {
 }
 
 let formatDate = `${day}-${month}-${year}`;
-// console.log(formatDate);
 document.getElementById("date").textContent = formatDate;
 document.querySelector(".time").title = `${day} ${monthName} ${year}`;
 
@@ -262,7 +275,6 @@ function updateVolume() {
   }
 
   taskVolIcon.title = `Speaker: ${volValue}%`;
-  // console.log(volValue)
 
   let t = setTimeout(function () {
     updateVolume();
@@ -297,7 +309,6 @@ navigator.getBattery && navigator.getBattery().then((battery) => {
     updateLevelInfo();
   });
   function updateLevelInfo() {
-    // console.log(`Battery level: ${battery.level * 100}%`);
     let batteryLevel = battery.level * 100;
     battIndicator.innerHTML = batteryLevel;
     taskBattIcon.title = `Battery status: ${batteryLevel}% remaining`;
@@ -306,18 +317,38 @@ navigator.getBattery && navigator.getBattery().then((battery) => {
 });
 
 // Right Notification Panel
+
 const rightPanel = document.getElementById("right-notification-panel");
 const rightPanelBtn = document.getElementById("dnt");
+let rightPanelIsOpen = false
 rightPanelBtn.addEventListener("click", (e) => {
   if (e.target === rightPanelBtn || e.target.closest("#dnt") === rightPanelBtn) {
     rightPanel.classList.toggle("active-noti-panel");
+    if (rightPanel.classList.contains('active-noti-panel')){
+      rightPanelIsOpen = true
+    }else{
+      rightPanelIsOpen = false
+    }
   }
 });
 
+const weekArr = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+]
 
 const calenderShowBtn = document.getElementById("calender-show-btn")
 const calenderBody = document.getElementById("calender-body")
 const calenderTab = document.querySelector('.calendar-tab')
+const calenderHeadDate = document.getElementById('calender-head-date')
+
+const weekDay = objectDate.getDay()
+calenderHeadDate.innerText = `${weekArr[weekDay]}, ${day} ${monthName}`
 
 calenderShowBtn.addEventListener("click", () => {
   calenderBody.classList.toggle("active-calender")
@@ -328,7 +359,6 @@ calenderShowBtn.addEventListener("click", () => {
     calenderShowBtn.classList.replace('bi-chevron-up','bi-chevron-down')
     calenderTab.style.backgroundColor = 'var(--navbg)'
   }
-  console.log(calenderTab)
 })
 
 function generateCalendar(year2, month2) {
@@ -352,17 +382,18 @@ function generateCalendar(year2, month2) {
     dateCell.classList.add("date-cell");
     dateCell.textContent = day2;
     
-    if (year2 === year && month2 === month1 && day2 === day) {
+    if (year2 === year && month2 === month1 && day2 === day0) {
       dateCell.classList.add("today");
     }
 
     calendarContainer.appendChild(dateCell);
   }
+
 }
 let calenderShowYear = year
 let calenderShowMonth = month1
 generateCalendar(calenderShowYear, calenderShowMonth); 
-// console.log(day, year, month1)
+
 
 const monthUpBtn = document.getElementById("calender-month-up")
 const monthDownBtn = document.getElementById("calender-month-down")
@@ -391,6 +422,9 @@ const canvasCloseBtn = canvasArea.querySelector('#canvas-close-btn')
 const taskBarIcons = document.getElementById('task-icon')
 const canvasTitle = canvasArea.querySelector('h3')
 
+let notepadRunning
+let cameraRunning
+
 function openCanvas(title){
   canvasArea.style.display = 'block'
   const canvasHeading = document.createTextNode(title)
@@ -401,6 +435,7 @@ function closeCanvas(){
   canvasArea.style.display = 'none'
   canvasTitle.innerText = ''
   if( cameraRunning ){
+    StopWebCam()
     canvasArea.removeChild(vid)
     taskBarIcons.removeChild(cameraTaskIcon)
     cameraRunning = false
@@ -410,13 +445,20 @@ function closeCanvas(){
     taskBarIcons.removeChild(notepadTaskIcon)
     notepadRunning = false;
   }
+  if ( chromeRunning ){
+    canvasArea.removeChild(chromeBody)
+    taskBarIcons.removeChild(chromeTaskIcon)
+    chromeRunning = false;
+  }
+  if ( thisPCRunning ){
+    canvasArea.removeChild(thisPCBody)
+    fileExplorerTaskIcon.classList.remove("task-icon-active")
+    thisPCRunning = false;
+  }
 }
 
 
 canvasCloseBtn.addEventListener('click', ()=>{
-  if (cameraRunning === true){
-    StopWebCam()
-  }
   closeCanvas()
 })
 
@@ -424,14 +466,18 @@ canvasCloseBtn.addEventListener('click', ()=>{
 // Camera App testing
 
 const cameraBtn = document.getElementById('camera')
-let cameraRunning
+const cameraBtn2 = document.getElementById('camera-start')
+const cameraBtn3 = document.getElementById('camera-all-apps')
 
 const vid = document.createElement('video')
 const cameraTaskIcon = document.createElement('img')
 
-cameraBtn.addEventListener('dblclick', () => {
+const openCamera = () => {
 
-  if (notepadRunning){
+  if (startIsOpen){
+    startbox.classList.remove('active-start')
+  }
+  if (notepadRunning || chromeRunning){
     alert("Only one app will run at a time until it's in TESTING")
     return
   }
@@ -456,19 +502,20 @@ cameraBtn.addEventListener('dblclick', () => {
     }
    }
    startWebCam();
-})
+}
+
+cameraBtn.addEventListener('dblclick', openCamera )
+cameraBtn2.addEventListener('click', openCamera )
+cameraBtn3.addEventListener('click', openCamera )
 
 const StopWebCam = ()=>{
   let stream = vid.srcObject;
-  let tracks =stream.getTracks();
+  let tracks = stream.getTracks();
   tracks.forEach(track => track.stop());
   vid.srcObject = null;
 }
 document.addEventListener('keydown', (e)=>{
   if ((e.keyCode === 27)){
-    if (cameraRunning === true){
-      StopWebCam()
-    }
     closeCanvas()
   }
 })
@@ -477,13 +524,19 @@ document.addEventListener('keydown', (e)=>{
 // Notepad App (testing)
 
 const notepadIcon = document.getElementById('notepad')
-let notepadRunning
+const notepadIcon2 = document.getElementById('notepad-start')
+const notepadIcon3 = document.getElementById('notepad-all-apps')
 const notepadTextArea = document.createElement('textarea')
 const notepadTaskIcon = document.createElement('img')
 
-notepadIcon.addEventListener('dblclick', () => {
+const openNotepad = () => {
 
-  if (cameraRunning){
+  if (startIsOpen || settingPanelIsOpen || rightPanelIsOpen){
+    startbox.classList.remove('active-start')
+    settingPanel.classList.remove('active-nav')
+    rightPanel.classList.remove('active-noti-panel')
+  }
+  if (cameraRunning || chromeRunning || thisPCRunning){
     alert("Only one app will run at a time until it's in testing")
     return
   }
@@ -491,6 +544,7 @@ notepadIcon.addEventListener('dblclick', () => {
   openCanvas("Notepad (testing)")
   canvasArea.appendChild(notepadTextArea);
   notepadTextArea.setAttribute('id','textArea')
+  notepadTextArea.setAttribute('placeholder','Click here then start writing...')
   notepadTextArea.setAttribute('cols','70')
   notepadTextArea.setAttribute('rows','20')
 
@@ -501,5 +555,129 @@ notepadIcon.addEventListener('dblclick', () => {
   notepadTaskIcon.setAttribute('src',"image/notepad.png")
 
 
-})
+}
 
+notepadIcon.addEventListener('dblclick', openNotepad )
+notepadIcon2.addEventListener('click', openNotepad )
+notepadIcon3.addEventListener('click', openNotepad )
+
+
+// Chrome App
+
+const chromeBtn = document.getElementById('chrome')
+const chromeBtn2 = document.getElementById('chrome-start')
+const chromeBtn3 = document.getElementById('chrome-all-apps')
+const chromeBody = document.createElement('div')
+const chromeTaskIcon = document.createElement('img')
+let chromeRunning = false
+
+const openChrome = () => {
+  if (startIsOpen){
+    startbox.classList.remove('active-start')
+  }
+  if (cameraRunning || notepadRunning || thisPCRunning){
+    alert("Only one app will run at a time until it's in testing")
+    return
+  }
+  chromeRunning = true
+  openCanvas("Google Chrome (testing)")
+  canvasArea.appendChild(chromeBody);
+  chromeBody.innerHTML='<iframe src="https://google.com" title="W3Schools Free Online Web Tutorials" width=99% style="min-height: 350px; border-radius: 6px;" ></iframe>'
+
+  taskBarIcons.appendChild(chromeTaskIcon)
+  chromeTaskIcon.setAttribute('class',"task-icon-item")
+  chromeTaskIcon.classList.add("task-icon-active")
+  chromeTaskIcon.setAttribute('title',"Google Chrome")
+  chromeTaskIcon.setAttribute('src',"image/chrome.png")
+
+}
+
+chromeBtn.addEventListener('dblclick', openChrome)
+chromeBtn2.addEventListener('click', openChrome)
+chromeBtn3.addEventListener('click', openChrome)
+
+window.addEventListener('load', function () {
+  setTimeout(() => {
+    modal.style.opacity = 1; 
+  }, 500);
+});
+
+// This PC App
+
+const thisPCBtn = document.getElementById("this-pc")
+const fileExplorerTaskIcon = document.getElementById("file-explorer-task-icon")
+const thisPCBody = document.createElement('div')
+let thisPCRunning = false
+
+const openThisPC = () => {
+  if (cameraRunning || notepadRunning || chromeRunning){
+    alert("Only one app will run at a time until it's in testing")
+    return
+  }
+  thisPCRunning = true
+  openCanvas("This PC (testing)")
+  canvasArea.appendChild(thisPCBody);
+  thisPCBody.innerHTML='<iframe src="/thisPC.html" title="W3Schools Free Online Web Tutorials" width=99% style="min-height: 350px; border-radius: 6px;" ></iframe>'
+
+
+  fileExplorerTaskIcon.classList.add("task-icon-active")
+
+}
+
+thisPCBtn.addEventListener('dblclick', openThisPC)
+fileExplorerTaskIcon.addEventListener('click', openThisPC)
+
+
+// Modal for FullScreen Mode
+
+const modal = document.getElementById("myModal");
+const modalContent = document.querySelector(".modal-content");
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fullscreenButton = document.getElementById("fullscreen-button");
+  const closeButton = document.getElementById("close-modal-button");
+
+  fullscreenButton.addEventListener("click", function () {
+    enterFullscreen();
+  });
+
+  closeButton.addEventListener("click", function () {
+    closeModal();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13 && event.ctrlKey) {
+      enterFullscreen();
+    }
+  });
+
+  document.addEventListener("click", function (event) {
+    if (!modalContent.contains(event.target)) {
+      closeModal();
+    }
+  });
+
+  function enterFullscreen() {
+    const element = document.documentElement;
+
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+
+    closeModal();
+  }
+
+  function closeModal() {
+    modal.style.opacity = 0;
+
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 1000);
+  }
+});

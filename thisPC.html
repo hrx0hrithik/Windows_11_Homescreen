@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This PC</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="thisPCStyle.css" >
+</head>
+<body>
+  <!-- <nav class="sidebar">
+    <ul>
+      <li>Home</li>
+      <li>Downloads</li>
+      <li>Documents</li>
+      <li>Pictures</li>
+      <li>This PC</li>
+    </ul>
+  </nav> -->
+  <div class="progress-container">
+    <div class="disk-icon">
+    <i class="bi bi-hdd-fill"></i>
+  </div>
+  <div class="disk-body">
+    <h3>localStorage <i class="bi bi-info-circle"></i></h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="localStorageProgress"></div>
+    </div>
+    <div id="localStorageSpaceInfo"></div>
+  </div>
+  </div>
+  
+  <div class="progress-container">
+    <div class="disk-icon">
+      <i class="bi bi-hdd-fill"></i>
+    </div>
+    <div class="disk-body">
+    <h3>sessionStorage <i class="bi bi-info-circle"></i></h3>
+    <div class="progress-bar">
+      <div class="progress-fill" id="sessionStorageProgress"></div>
+    </div>
+    <div id="sessionStorageSpaceInfo"></div>
+    </div>
+  </div>
+
+  <script src="thisPCScript.js" ></script>
+</body>
+</html>

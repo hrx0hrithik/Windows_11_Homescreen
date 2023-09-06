@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows Home</title>
-    <link rel="icon" type="image/x-icon" href="/image/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -14,47 +14,56 @@
 </head>
 
 <body class="light" id="body" tabindex="-1">
-
+    <audio src="sounds/Windows Startup Sound.m4a" class="stratup-audio" type="audio/x-m4a" autoplay></audio>
     <div id="preloader">
+        <img src="image/loading-windows.gif" alt="loading..." height="auto" width="auto">
         <p class="pre-text">Please Wait</p>
     </div>
     <div class="rotate-screen">
         <p>Rotate your screen</p>
     </div>
     <div id="video" tabindex="-1">
-        <video class="video" preload autoplay muted loop disablePictureInPicture >
-            <source src="image/wallpaper-live-dark.mp4" type="video/webm">
+        <video class="video" autoplay muted loop disablePictureInPicture preload="none" >
+            <source defer src="image/wallpaper-live-dark.mp4" type="video/webm">
         </video>
     </div>
 
+    <dialog id="myModal">
+        <div class="modal-content">
+            <button id="close-modal-button"><i class="bi bi-x-lg"></i></button>
+            <p>Enter Fullscreen Mode for a better experience</p>
+            <p style="color: gray;">(Alt + Enter)</p>
+            <button id="fullscreen-button">Go Fullscreen</button>
+        </div>
+    </dialog>
+
     <div class="desktop" tabindex="-1">
-        <div class="desk-icon-div"><img class="desk-icon"
-                title="Shows the disk drives and hardwares connected to this computer" tabindex="1"
-                src="image/this-pc.png">
+        <div class="desk-icon-div" id="this-pc" title="Shows the disk drives and hardwares connected to this computer">
+            <img class="desk-icon" tabindex="1" src="image/this-pc.png">
             <p class="icon-text">This PC</p>
         </div>
-        <div class="desk-icon-div"><img class="desk-icon" title="Contains the files and folders that you have deleted"
-                tabindex="2" src="image/recycle-bin.png">
+        <div class="desk-icon-div" title="Contains the files and folders that you have deleted">
+            <img class="desk-icon"  tabindex="2" src="image/recycle-bin.png">
             <p class="icon-text">Recycle Bin</p>
         </div>
-        <div class="desk-icon-div"><img class="desk-icon" title="Browse the web" tabindex="3"
-                src="image/microsoft-edge.png">
+        <div class="desk-icon-div" title="Browse the web">
+            <img class="desk-icon" tabindex="3" src="image/microsoft-edge.png">
             <p class="icon-text">Microsoft Edge</p>
         </div>
-        <div class="desk-icon-div"><img class="desk-icon" title="Access the Internet" tabindex="4"
-                src="image/chrome.png">
+        <div class="desk-icon-div" id="chrome"  title="Access the Internet">
+            <img class="desk-icon" tabindex="4"src="image/chrome.png">
             <p class="icon-text">Google Chrome</p>
         </div>
-        <div id="camera" class="desk-icon-div" ><img class="desk-icon" title="Camera" tabindex="5"
+        <div id="camera" class="desk-icon-div" title="Camera" ><img class="desk-icon" tabindex="5"
                 src="image/camera.png">
             <p class="icon-text">Camera</p>
         </div>
-        <div id="notepad" class="desk-icon-div" style="grid-column: 2/3;"><img class="desk-icon" title="Notepad" tabindex="6"
-                src="image/notepad.png">
+        <div id="notepad" class="desk-icon-div" title="Notepad" style="grid-column: 2/3;">
+            <img class="desk-icon" tabindex="6" src="image/notepad.png">
             <p class="icon-text">Notepad</p>
         </div>
 
-        <div id="canvas-container" class="canvas-container">
+        <div id="canvas-container" draggable="true" class="canvas-container">
             <div id="canvas-head">
                 <h3></h3>
                 <button id="canvas-close-btn" class="canvas-close-btn"><i class="bi bi-x-lg"></i></button>
@@ -81,9 +90,9 @@
                             src="image/adobe-photoshop.png">Adobe Photoshop</div>
                     <div class="start-icon-div"><img class="start-icon" title="Calculator"
                             src="image/calculator.png">Calculator</div>
-                    <div class="start-icon-div"><img class="start-icon" title="Camera" src="image/camera.png">Camera
+                    <div class="start-icon-div"  id="camera-start"><img class="start-icon" title="Camera" src="image/camera.png">Camera
                     </div>
-                    <div class="start-icon-div"><img class="start-icon" title="Google Chrome"
+                    <div class="start-icon-div" id="chrome-start"><img class="start-icon" title="Google Chrome"
                             src="image/chrome.png">Google
                         Chrome</div>
                     <div class="start-icon-div"><img class="start-icon" title="File Explorer"
@@ -98,7 +107,7 @@
                             src="image/visual-studio-code.png">VS Code</div>
                     <div class="start-icon-div"><img class="start-icon" title="Microsoft Edge"
                             src="image/microsoft-edge.png">Microsoft Edge</div>
-                    <div class="start-icon-div"><img class="start-icon" title="Notepad" src="image/notepad.png">Notepad
+                    <div class="start-icon-div" id="notepad-start"><img class="start-icon" title="Notepad" src="image/notepad.png">Notepad
                     </div>
                 </div>
                 <div class="rec-title">
@@ -151,18 +160,19 @@
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/adobe-photoshop.png">Adobe Photoshop</li>
                     <li class="start-list-item start-list-alphabet">C</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/calculator.png">Calculator</li>
-                    <li class="start-list-item"><img class="all-apps-list-icon" src="image/camera.png">Camera</li>
+                    <li class="start-list-item" id="camera-all-apps"><img class="all-apps-list-icon" src="image/camera.png">Camera</li>
                     <li class="start-list-item start-list-alphabet">F</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/file-explorer.png">File Explorer</li>
                     <li class="start-list-item start-list-alphabet">G</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/github.png">Git Desktop</li>
+                    <li class="start-list-item" id="chrome-all-apps"><img class="all-apps-list-icon" src="image/chrome.png">Google Chrome</li>
                     <li class="start-list-item start-list-alphabet">J</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/icons8-java-48.png">Java</li>
                     <li class="start-list-item start-list-alphabet">M</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/microsoft-edge.png">Microsoft Edge</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/microsoft-store-light.png">Microsoft Store</li>
                     <li class="start-list-item start-list-alphabet">N</li>
-                    <li class="start-list-item"><img class="all-apps-list-icon" src="image/notepad.png">Notepad</li>
+                    <li class="start-list-item" id="notepad-all-apps"><img class="all-apps-list-icon" src="image/notepad.png">Notepad</li>
                     <li class="start-list-item start-list-alphabet">R</li>
                     <li class="start-list-item"><img class="all-apps-list-icon" src="image/recycle-bin.png">Recycle Bin</li>
                     <li class="start-list-item start-list-alphabet">V</li>
@@ -241,7 +251,7 @@
         </div>
         <div class="calendar-tab">
             <div class="calendar-head">
-                <span>Saturday, 26 August</span>
+                <span id="calender-head-date"></span>
                 <button><i id="calender-show-btn" class="bi bi-chevron-down"></i></button>
             </div>
             <div id="calender-body" class="calendar-body">
@@ -287,7 +297,7 @@
             <img class="task-icon-item" title="Task View" src="image/task-view.png" alt="Task View">
             <img class="task-icon-item" title="Microsoft Store" src="image/microsoft-store-light.png"
                 alt="Microsoft Store" id="microsoft-store1">
-            <img class="task-icon-item" title="File Explorer" src="image/file-explorer.png" alt="File Explorer">
+            <img class="task-icon-item" id="file-explorer-task-icon" title="File Explorer" src="image/file-explorer.png" alt="File Explorer">
             <img class="task-icon-item" title="Microsoft Edge" src="image/microsoft-edge.png">
 
         </div>
