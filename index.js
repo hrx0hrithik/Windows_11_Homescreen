@@ -782,10 +782,15 @@ window.addEventListener('load', function () {
 
 const thisPCBtn = document.getElementById("this-pc")
 const fileExplorerTaskIcon = document.getElementById("file-explorer-task-icon")
+const fileExplorerStartIcon = document.getElementById("file-explorer-start-icon")
+const fileExplorerAllApps = document.getElementById("file-explorer-all-apps")
 const thisPCBody = document.createElement('div')
 let thisPCRunning = false
 
 const openThisPC = () => {
+  if (startIsOpen) {
+    startbox.classList.remove('active-start')
+  }
   if (cameraRunning || notepadRunning || chromeRunning) {
     alert("Only one app will run at a time until it's in testing")
     return
@@ -802,18 +807,18 @@ const openThisPC = () => {
 
 thisPCBtn.addEventListener('dblclick', openThisPC)
 fileExplorerTaskIcon.addEventListener('click', openThisPC)
+fileExplorerStartIcon.addEventListener('click', openThisPC)
+fileExplorerAllApps.addEventListener('click', openThisPC)
 
 
 // Modal for FullScreen Mode
 
 const modal = document.getElementById("myModal");
 const modalContent = document.querySelector(".modal-content");
-const startUpSound = document.getElementById("startup-sound")
 
 document.addEventListener("DOMContentLoaded", function () {
   const fullscreenButton = document.getElementById("fullscreen-button");
   const closeButton = document.getElementById("close-modal-button");
-
 
   fullscreenButton.addEventListener("click", function () {
     enterFullscreen();
@@ -853,11 +858,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeModal() {
     modal.style.opacity = 0;
-    startUpSound.play()
-
+    startUPSound()
     setTimeout(() => {
       modal.style.display = "none";
     }, 1000);
   }
 });
 
+let hasStartedUpSound = false;
+const startUpSound = document.getElementById("startup-sound")
+
+function startUPSound() {
+  if (!hasStartedUpSound) {
+    startUpSound.play();
+    hasStartedUpSound = true; 
+  }
+}

@@ -521,6 +521,7 @@ button[disabled]:hover{
     justify-content: space-between;
     opacity: 0;
     border-radius: 8px;
+    z-index: 3;
     overflow: hidden;
     transition: all 0.2s ease-in;
 }
@@ -995,11 +996,11 @@ input:checked + .toggle-switch {
 }
 
 .today{
-    background-color:var(--activeBtnHover);
-    color: white;
+    background-color:var(--activeBtn);
+    color: #000;
 }
 .today:hover{
-    background-color:var(--activeBtn);
+    background-color:var(--activeBtnHover);
 }
 .calendar-footer{
     border-top: 2px solid var(--gray);
