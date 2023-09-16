@@ -808,10 +808,12 @@ fileExplorerTaskIcon.addEventListener('click', openThisPC)
 
 const modal = document.getElementById("myModal");
 const modalContent = document.querySelector(".modal-content");
+const startUpSound = document.getElementById("startup-sound")
 
 document.addEventListener("DOMContentLoaded", function () {
   const fullscreenButton = document.getElementById("fullscreen-button");
   const closeButton = document.getElementById("close-modal-button");
+
 
   fullscreenButton.addEventListener("click", function () {
     enterFullscreen();
@@ -851,6 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function closeModal() {
     modal.style.opacity = 0;
+    startUpSound.play()
 
     setTimeout(() => {
       modal.style.display = "none";
