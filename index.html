@@ -62,6 +62,10 @@
             <img class="desk-icon" tabindex="6" src="image/notepad.png">
             <p class="icon-text">Notepad</p>
         </div>
+        <div id="calculator" class="desk-icon-div" title="Calculator" style="grid-column: 2/3;">
+            <img class="desk-icon" tabindex="7" src="image/calculator.png">
+            <p class="icon-text">Calculator</p>
+        </div>
 
         <div id="canvas-container" draggable="true" class="canvas-container">
             <div id="canvas-head">
@@ -190,7 +194,7 @@
 
     </div>
     <div class="sett-nav" id="sett-nav" tabindex="-1">
-        <div class="nav-grid">
+        <div id="nav-grid" class="nav-grid">
             <div class="nav-items">
                 <div style="border-radius: 5px;">
                     <button id="wifi-click" class="wifi-btn"><i class="bi bi-wifi"></i></button>
@@ -220,7 +224,7 @@
                             class="bi bi-chevron-right"></i></i></button>Accessibility
             </div>
         </div>
-        <div class="slider">
+        <div id="nav-slider" class=" slider">
             <div class="slide-item">
                 <i id="brightness-icon" class="bi bi-brightness-low"
                     style="font-size: 16px;"></i>&nbsp;&nbsp;&nbsp;<input id="brightness" class="range slider-progress"
@@ -231,6 +235,60 @@
                     class="range slider-progress" type="range" min="0" max="100">&nbsp;&nbsp;
                 <i class="bi bi-speaker" style="font-size: 14px;transform: rotate(180deg);"></i>&nbsp;<i
                     class="bi bi-chevron-right"></i>
+            </div>
+        </div>
+        <div id="wifi-menu" class="wifi-menu hide-wifi-menu">
+            <div class="wifi-menu-head">
+                <div class="back-wifi">
+                    <i id="back-wifi" class="bi bi-arrow-left-short" style="font-size: 26px;"></i>
+                    <span>Wi-Fi</span>
+                </div>
+                <label for="wifi-toggle-btn" class="toggle-switch-wraper">
+                    <input type="checkbox" id="wifi-toggle-btn">
+                    <span class="toggle-switch"></span>
+                </label>
+            </div>
+            <div class="wifi-menu-body">
+                <div class="wifi-list">
+                    <ul style="list-style: none;">
+                        <li class="wifi-list-item"><i class="wifi-list-icon bi bi-wifi"></i> <span>Test Network 1</span></li>
+                        <li class="wifi-list-item"><i class="wifi-list-icon bi bi-wifi-2"></i> <span>Test Network 2</span></li>
+                        <li class="wifi-list-item"><i class="wifi-list-icon bi bi-wifi-2"></i> <span>Test Network 3</span></li>
+                        <li class="wifi-list-item"><i class="wifi-list-icon bi bi-wifi-1"></i> <span>Test Network 4</span></li>
+                    </ul>
+                </div>
+                <div class="wifi-off-disp">
+                    <h2>Wi-Fi is off</h2><br><br>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+                </div>
+            </div>
+        </div>
+        <div id="bt-menu" class="bt-menu hide-bt-menu">
+            <div class="bt-menu-head">
+                <div class="back-bt">
+                    <button id="back-bt" class="bi bi-arrow-left-short" style="font-size: 26px;"></button>
+                    <span>Bluetooth</span>
+                </div>
+                <label for="bt-toggle-btn" class="toggle-switch-wraper">
+                    <input type="checkbox" id="bt-toggle-btn">
+                    <span class="toggle-switch"></span>
+                </label>
+            </div>
+            <div class="bt-menu-body">
+                <div class="bt-list">
+                <ul style="list-style: none;">
+                    <li class="bt-devices"> <span>Your devices</span></li>
+                    <li class="wifi-list-item"><i class="wifi-list-icon bi bi-headphones"></i> <span>Test Bluetooth Headphones</span></li>
+                    <li class="wifi-list-item"><i class="wifi-list-icon bi bi-headset"></i> <span>Test Bluetooth Headset</span></li>
+                    <li class="wifi-list-item"><i class="wifi-list-icon bi bi-earbuds"></i> <span>Test Bluetooth Earbuds</span></li>
+                </ul>
+                <hr style="opacity: 0.4;">
+                <p class="bt-devices">New devices</p>
+            </div>
+            <div class="bt-off-disp">
+                <h2>Bluetooth is off</h2><br><br>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            </div>
             </div>
         </div>
         <div class="nav-bottom">
@@ -283,11 +341,37 @@
             </div>
             </div>
     </div>
+    <!-- <div class="left-weather-widget-panel" id="left-panel">
+        <div class="widget-head">
+            <div class="left-part">11 Sept <br> Good Morning</div>
+            <div class="right-part">
+                <i class="bi bi-arrow-clockwise"></i>
+                <i class="bi bi-arrows-angle-expand"></i>
+                <i class="bi bi-gear"></i>
+            </div>
+        </div>
+        <div class="widget-body">
+            <div class="widget-card">
+                <p>Widget Card</p>
+                <p>Widget Card</p>
+                <p>Widget Card</p>
+                <p>Widget Card</p>
+                <p>Widget Card</p>
+            </div>
+            <div class="news-card">
+                <p>News Card</p>
+                <p>News Card</p>
+                <p>News Card</p>
+                <p>News Card</p>
+                <p>News Card</p>
+            </div>
+        </div>
+    </div> -->
     <div class="taskbar">
         <div id="weather-widget" class="weather" title="29&#8451" tabindex="1">
-            <img class="weather-icon" src="image/weather.png">
-            <div class="temp-display"> 29&#8451 <br>
-                <p class="weather-txt">Feels Good</p>
+            <img id="weather-icon" class="weather-icon" src="image/weather.png">
+            <div class="temp-display"> <span id="temp-display">29</span>&#8451 <br>
+                <p id="weather-txt" class="weather-txt">Feels Good</p>
             </div>
         </div>
         <div class="task-icon" id="task-icon">

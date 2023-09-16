@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web Browser</title>
+
+
+
+</head>
+<body>
+    <div id="navbar">
+        <input type="text" id="url-input" placeholder="Enter a URL">
+        <button id="go-button">Go</button>
+    </div>
+    <iframe id="webview"></iframe>
+    <p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+</body>
+<script src="script.js" ></script>
+</html>
