@@ -531,58 +531,58 @@ let weatherData = null
     let tempDisp = document.getElementById("temp-display")
     let weatherText = document.getElementById("weather-txt")
 
-// async function fetchWeather(location1) {
-//   let weatherURL = `http://api.weatherapi.com/v1/current.json?key=3f5419ad369d48bfb2a173447233006&q=${location1}&aqi=no`;
-//   const res = await fetch(weatherURL);
-//   const data = await res.json();
-//   weatherData = data; // Store the data in weatherData variable
-//   console.log(data);
-//   return data;
-// }
+async function fetchWeather(location1) {
+  let weatherURL = `http://api.weatherapi.com/v1/current.json?key=3f5419ad369d48bfb2a173447233006&q=${location1}&aqi=no`;
+  const res = await fetch(weatherURL);
+  const data = await res.json();
+  weatherData = data; // Store the data in weatherData variable
+  console.log(data);
+  return data;
+}
 
-// let longitude = 0;
-// let latitude = 0;
+let longitude = 0;
+let latitude = 0;
 
-// function getLocation() {
-//   return new Promise((resolve, reject) => {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(
-//         (position) => {
-//           longitude = position.coords.longitude;
-//           latitude = position.coords.latitude;
-//           console.log(latitude + "," + longitude);
-//           locat = latitude + "," + longitude;
-//           console.log(locat);
-//           resolve(locat);
-//         },
-//         (error) => {
-//           reject(error);
-//         }
-//       );
-//     } else {
-//       reject("Geolocation is not supported by this browser.");
-//     }
-//   });
-// }
+function getLocation() {
+  return new Promise((resolve, reject) => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          longitude = position.coords.longitude;
+          latitude = position.coords.latitude;
+          console.log(latitude + "," + longitude);
+          locat = latitude + "," + longitude;
+          console.log(locat);
+          resolve(locat);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    } else {
+      reject("Geolocation is not supported by this browser.");
+    }
+  });
+}
 
-// getLocation()
-//   .then((location) => {
-//     return fetchWeather(location); // Use the fetched location to call fetchWeather
-//   })
-//   .then((data) => {
-//     // Use the weatherData variable to access the fetched weather data
-//     console.log("Weather Data:", weatherData);
+getLocation()
+  .then((location) => {
+    return fetchWeather(location); // Use the fetched location to call fetchWeather
+  })
+  .then((data) => {
+    // Use the weatherData variable to access the fetched weather data
+    console.log("Weather Data:", weatherData);
 
-//     tempDisp.innerText = weatherData ? Math.floor(weatherData.current.temp_c) : " "
-//     weatherText.innerText = weatherData ? weatherData.current.condition.text : "Feels Good"
-//     weatherImg.setAttribute("src",weatherData.current.condition.icon)
-//     weatherWidget.setAttribute("title",`${Math.floor(weatherData.current.temp_c)}°C ${weatherData.current.condition.text}`)
+    tempDisp.innerText = weatherData ? Math.floor(weatherData.current.temp_c) : " "
+    weatherText.innerText = weatherData ? weatherData.current.condition.text : "Feels Good"
+    weatherImg.setAttribute("src",weatherData.current.condition.icon)
+    weatherWidget.setAttribute("title",`${Math.floor(weatherData.current.temp_c)}°C ${weatherData.current.condition.text}`)
 
 
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 
 
 // App Canvas Container (non scalable)
