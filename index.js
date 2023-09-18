@@ -77,6 +77,10 @@ window.onclick = (e) => {
   if (!e.target.matches("#sett-btn") && !e.target.matches(".tools-icon")) {
     if (settingPanel.classList.contains("active-nav")) {
       settingPanel.classList.remove("active-nav");
+      wifiMenu.classList.add("hide-wifi-menu")
+      btMenu.classList.add("hide-bt-menu")
+      navGrid.classList.remove("hide-nav-grid")
+      navSlid.classList.remove("hide-nav-grid")
     }
   }
   if (!e.target.closest('#dnt') && !e.target.closest('#right-notification-panel')) {
@@ -219,13 +223,11 @@ btToggleBtn.addEventListener("click", () => {
 })
 
 wifi2.addEventListener("click", () => {
-  // console.log("wifi mor")
   navGrid.classList.add("hide-nav-grid")
   navSlid.classList.add("hide-nav-grid")
   wifiMenu.classList.remove("hide-wifi-menu")
 })
 bt2.addEventListener("click", () => {
-  // console.log("bt mor")
   navGrid.classList.add("hide-nav-grid")
   navSlid.classList.add("hide-nav-grid")
   btMenu.classList.remove("hide-bt-menu")
@@ -266,16 +268,9 @@ airBtn.addEventListener("click", function () {
     if (wifiState || btState ){
       bt1.classList.remove("active-btn");
       bt2.classList.remove("active-btn");
-      // btList.style.display = 'none'
-      // btOffDisp.style.display = 'flex'
-      // btState = false
-      // btToggleBtn.checked = false
+
       wifi1.classList.remove("active-btn");
       wifi2.classList.remove("active-btn");
-      // wifiList.style.display = 'none'
-      // wifiOffDisp.style.display = 'flex'
-      // wifiState = false
-      // wifiToggleBtn.checked = false
     }
   }else{
     bt1.disabled = false
@@ -570,7 +565,6 @@ let weatherData = null
 //   });
 // }
 
-// // // Now, you can use the promises like this:
 // getLocation()
 //   .then((location) => {
 //     return fetchWeather(location); // Use the fetched location to call fetchWeather

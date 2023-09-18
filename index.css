@@ -997,7 +997,7 @@ input:checked + .toggle-switch {
 
 .today{
     background-color:var(--activeBtn);
-    color: #000;
+    color: var(--same);
 }
 .today:hover{
     background-color:var(--activeBtnHover);
