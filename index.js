@@ -532,7 +532,7 @@ let weatherData = null
     let weatherText = document.getElementById("weather-txt")
 
 async function fetchWeather(location1) {
-  let weatherURL = `http://api.weatherapi.com/v1/current.json?key=3f5419ad369d48bfb2a173447233006&q=${location1}&aqi=no`;
+  let weatherURL = `https://api.weatherapi.com/v1/current.json?key=3f5419ad369d48bfb2a173447233006&q=${location1}&aqi=no`;
   const res = await fetch(weatherURL);
   const data = await res.json();
   weatherData = data; // Store the data in weatherData variable
