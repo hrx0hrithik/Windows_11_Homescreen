@@ -7,9 +7,9 @@
     --same:#fff;
     --bgcl: #afb5b8;
     --text: #000;
-    --taskcl: rgb(216, 229, 246);;
+    --taskcl: rgb(216, 229, 246);
     --hovcolor:rgba(255, 255, 255, 0.57);
-    --navbg: rgba(255, 255, 255, 0.57);
+    --navbg: rgba(241, 241, 241, 0.57);
     --navbott: rgba(231, 245, 255, 0.514);
     --navbtn: rgb(243, 243, 243);
     --gray: #d5d5d5;
@@ -22,7 +22,7 @@
 }
 .dark{
     --same:#000;
-    --bgcl: #000;
+    --bgcl: #00000080;
     --text: #fff;
     --taskcl:rgb(33 32 32 / 93%);
     --hovcolor: rgba(79, 78, 78, 0.384);
@@ -644,7 +644,7 @@ input[type=range].range {
   }
   
   input[type=range].range::-webkit-slider-runnable-track {
-    height: 6px;
+    height: 4px;
     border: none;
     border-radius: 10px;
     background: #EFEFEF;
@@ -915,10 +915,14 @@ input:checked + .toggle-switch {
     font-size: 14px;
 }
 .notification-snoze-btn{
-    padding: 4px;
+    padding: 5px;
     background-color: var(--navbg);
     color: var(--text);
-    border: none
+    border: none;
+    border-radius: 4px;
+}
+.notification-snoze-btn:hover{
+    background-color: var(--hovcolor)
 }
 .notification-body{
     display: flex;
@@ -935,6 +939,16 @@ input:checked + .toggle-switch {
     border-radius: 6px;
     height: auto;
 }
+.calendar-show-btn{
+    padding: 5px 4px;
+    border: none;
+    color: var(--text);
+    background-color: transparent;
+    border-radius: 4px;
+}
+.calendar-show-btn:hover{
+    background-color: var(--hovcolor);
+}
 .calendar-head , .calendar-footer{
     display: flex;
     justify-content: space-between;
@@ -948,37 +962,37 @@ input:checked + .toggle-switch {
     transition: all 0.3s linear;
     overflow: hidden;
 }
-.calender-body-month{
+.calendar-body-month{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
     font-size: 14px;
 }
-.calender-month-btn{
+.calendar-month-btn{
     background: transparent;
     border: none;
     border-radius: 5px;
     padding: 5px;
     color: var(--text);
 }
-.calender-month-btn:hover{
+.calendar-month-btn:hover{
     background-color: var(--hovcolor);
 }
 .calendar-body-weekdays{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    margin: 5px 0;
     font-weight: bold;
     justify-items: center;
     align-items: center;
 }
-.calender-body-dates{
+.calendar-body-dates{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    row-gap: 2px;
     justify-items: center;
     align-items: center;
-    margin: 5px;
+    margin: 2px;
 }
 .date-cell{
     font-size: 14px;
@@ -994,6 +1008,12 @@ input:checked + .toggle-switch {
 .date-cell:hover{
     background-color: var(--hovcolor);
 }
+.date-cell:focus{
+    border: 1px solid var(--activeBtnHover);
+    background-color: var(--hovcolor);
+    padding: 12px;
+    color: var(--activeBtnHover);
+}
 
 .today{
     background-color:var(--activeBtn);
@@ -1001,6 +1021,10 @@ input:checked + .toggle-switch {
 }
 .today:hover{
     background-color:var(--activeBtnHover);
+}
+.today:focus{
+    background-color:var(--activeBtn);
+    color: var(--same);
 }
 .calendar-footer{
     border-top: 2px solid var(--gray);
@@ -1014,7 +1038,7 @@ input:checked + .toggle-switch {
     color: var(--text);
 }
 
-.active-calender{
+.active-calendar{
     height: 0;
 }
 

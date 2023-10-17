@@ -403,7 +403,7 @@ navigator.getBattery && navigator.getBattery().then((battery) => {
       taskBattIcon.classList.remove("bi-battery-half");
       battIcon.classList.add("bi-battery-charging");
       taskBattIcon.classList.add("bi-battery-charging");
-    }else if(battery.level >= 0.8) {
+    }else if(battery.level >= 0.85) {
       battIcon.classList.remove("bi-battery-half");
       taskBattIcon.classList.remove("bi-battery-half");
       battIcon.classList.add("bi-battery-full");
@@ -448,33 +448,33 @@ const weekArr = [
   'Saturday'
 ]
 
-const calenderShowBtn = document.getElementById("calender-show-btn")
-const calenderBody = document.getElementById("calender-body")
-const calenderTab = document.querySelector('.calendar-tab')
-const calenderHeadDate = document.getElementById('calender-head-date')
+const calendarShowBtn = document.getElementById("calendar-show-btn")
+const calendarBody = document.getElementById("calendar-body")
+const calendarTab = document.querySelector('.calendar-tab')
+const calendarHeadDate = document.getElementById('calendar-head-date')
 
 const weekDay = objectDate.getDay()
-calenderHeadDate.innerText = `${weekArr[weekDay]}, ${day} ${monthName}`
+calendarHeadDate.innerText = `${weekArr[weekDay]}, ${day} ${monthName}`
 
-calenderShowBtn.addEventListener("click", () => {
-  calenderBody.classList.toggle("active-calender")
-  if (calenderBody.classList.contains('active-calender')) {
-    calenderShowBtn.classList.replace('bi-chevron-down', 'bi-chevron-up')
-    calenderTab.style.backgroundColor = 'var(--navbott)'
+calendarShowBtn.addEventListener("click", () => {
+  calendarBody.classList.toggle("active-calendar")
+  if (calendarBody.classList.contains('active-calendar')) {
+    calendarShowBtn.classList.replace('bi-chevron-down', 'bi-chevron-up')
+    calendarTab.style.backgroundColor = 'var(--navbott)'
   } else {
-    calenderShowBtn.classList.replace('bi-chevron-up', 'bi-chevron-down')
-    calenderTab.style.backgroundColor = 'var(--navbg)'
+    calendarShowBtn.classList.replace('bi-chevron-up', 'bi-chevron-down')
+    calendarTab.style.backgroundColor = 'var(--navbg)'
   }
 })
 
 function generateCalendar(year2, month2) {
   const daysInMonth = new Date(year2, month2 + 1, 0).getDate();
-  const calendarContainer = document.getElementById("calender-body-dates");
+  const calendarContainer = document.getElementById("calendar-body-dates");
   const monthNyear = document.querySelector(".month-and-year");
   const firstDayOfWeek = new Date(year2, month2, 1).getDay();
   let monthName2 = monthArr[month2]
 
-  monthNyear.innerHTML = `${monthName2},${calenderShowYear}`;
+  monthNyear.innerHTML = `${monthName2},${calendarShowYear}`;
   calendarContainer.innerHTML = "";
 
   for (let i = 0; i < firstDayOfWeek; i++) {
@@ -486,7 +486,12 @@ function generateCalendar(year2, month2) {
   for (let day2 = 1; day2 <= daysInMonth; day2++) {
     const dateCell = document.createElement("div");
     dateCell.classList.add("date-cell");
+    dateCell.setAttribute('tabindex','-1')
     dateCell.textContent = day2;
+    dateCell.addEventListener('click', ()=> {
+      dateCell.focus()
+      console.log("date focus")
+    })
 
     if (year2 === year && month2 === month1 && day2 === day0) {
       dateCell.classList.add("today");
@@ -496,29 +501,29 @@ function generateCalendar(year2, month2) {
   }
 
 }
-let calenderShowYear = year
-let calenderShowMonth = month1
-generateCalendar(calenderShowYear, calenderShowMonth);
+let calendarShowYear = year
+let calendarShowMonth = month1
+generateCalendar(calendarShowYear, calendarShowMonth);
 
 
-const monthUpBtn = document.getElementById("calender-month-up")
-const monthDownBtn = document.getElementById("calender-month-down")
+const monthUpBtn = document.getElementById("calendar-month-up")
+const monthDownBtn = document.getElementById("calendar-month-down")
 
 monthUpBtn.addEventListener('click', () => {
-  calenderShowMonth -= 1
-  if (calenderShowMonth < 0) {
-    calenderShowMonth = 11
-    calenderShowYear -= 1
+  calendarShowMonth -= 1
+  if (calendarShowMonth < 0) {
+    calendarShowMonth = 11
+    calendarShowYear -= 1
   }
-  generateCalendar(calenderShowYear, calenderShowMonth);
+  generateCalendar(calendarShowYear, calendarShowMonth);
 })
 monthDownBtn.addEventListener('click', () => {
-  calenderShowMonth += 1
-  if (calenderShowMonth >= 12) {
-    calenderShowYear += 1
-    calenderShowMonth = 0
+  calendarShowMonth += 1
+  if (calendarShowMonth >= 12) {
+    calendarShowYear += 1
+    calendarShowMonth = 0
   }
-  generateCalendar(calenderShowYear, calenderShowMonth);
+  generateCalendar(calendarShowYear, calendarShowMonth);
 })
 
 
@@ -627,10 +632,111 @@ function closeCanvas() {
   }
 }
 
+// close canvas 
 
 canvasCloseBtn.addEventListener('click', () => {
   closeCanvas()
 })
+
+// Drag and resize canvas
+
+// const dragElement = (element) => {
+//   let pos1, pos2, pos3 = 0, pos4 = 0;
+
+//   const dragMouseUp = () => {
+//     document.onmouseup = null;
+//     document.onmousemove = null;
+//   };
+
+//   const dragMouseMove = (event) => {
+//     event.preventDefault();
+//     pos1 = pos3 - event.clientX;
+//     pos2 = pos4 - event.clientY;
+//     pos3 = event.clientX;
+//     pos4 = event.clientY;
+
+//     // Calculate the new position of the element
+//     let newTop = element.offsetTop - pos2;
+//     let newLeft = element.offsetLeft - pos1;
+
+//     // Get the dimensions of the viewport
+//     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+//     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+//     // Calculate the maximum allowable position
+//     const maxTop = viewportHeight - element.clientHeight;
+//     const maxLeft = viewportWidth - element.clientWidth;
+
+//     // Restrict the position within the visible screen
+//     newTop = Math.min(Math.max(newTop, 0), maxTop);
+//     newLeft = Math.min(Math.max(newLeft, 0), maxLeft);
+
+//     // Set the new position of the element
+//     element.style.top = `${newTop}px`;
+//     element.style.left = `${newLeft}px`;
+//   };
+
+//   const dragMouseDown = (event) => {
+//     event.preventDefault();
+//     pos3 = event.clientX;
+//     pos4 = event.clientY;
+//     document.onmouseup = dragMouseUp;
+//     document.onmousemove = dragMouseMove;
+//   };
+
+//   element.onmousedown = dragMouseDown;
+// };
+
+// dragElement(canvasArea);
+
+// const dragElement = (element) => {
+//   let pos1 = 0, pos2 = 0;
+
+//   const dragMouseUp = () => {
+//     document.onmouseup = null;
+//     document.onmousemove = null;
+//   };
+
+//   const dragMouseMove = (event) => {
+//     event.preventDefault();
+    
+//     const offsetX = event.clientX - pos1;
+//     const offsetY = event.clientY - pos2;
+    
+//     pos1 = event.clientX + offsetX;
+//     pos2 = event.clientY + offsetY;
+
+//     // Calculate the boundaries based on the screen size
+//     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+//     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+//     const minLeft = 0;
+//     const maxLeft = viewportWidth - element.clientWidth;
+//     const minTop = 0;
+//     const maxTop = viewportHeight - element.clientHeight;
+
+//     // Ensure the element stays within the boundaries
+//     const newLeft = Math.min(Math.max(element.offsetLeft + offsetX, minLeft), maxLeft);
+//     const newTop = Math.min(Math.max(element.offsetTop + offsetY, minTop), maxTop);
+
+//     element.style.left = `${newLeft}px`;
+//     element.style.top = `${newTop}px`;
+//   };
+
+//   const dragMouseDown = (event) => {
+//     event.preventDefault();
+//     pos1 = event.clientX - element.offsetLeft;
+//     pos2 = event.clientY - element.offsetTop;
+    
+//     document.onmouseup = dragMouseUp;
+//     document.onmousemove = dragMouseMove;
+//   };
+
+//   element.onmousedown = dragMouseDown;
+// };
+
+// dragElement(canvasArea);
+
 
 
 // Camera App testing

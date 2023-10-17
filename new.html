@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Web Browser</title>
+    <title>Test Window</title>
 
-
-
+    <style>        
+        #dragable {
+            background-color: red;
+            height: 120px;
+            width: 100px;
+            position: absolute;
+            z-index: 9;
+            /* margin: 10px; */
+        }
+        
+    </style>
 </head>
 <body>
-    <div id="navbar">
-        <input type="text" id="url-input" placeholder="Enter a URL">
-        <button id="go-button">Go</button>
+    <div id="dragable">
+        <!-- <div id="dragzone"></div> -->
     </div>
-    <iframe id="webview"></iframe>
-    <p>Click the button to get your coordinates.</p>
-
-<button onclick="getLocation()">Try It</button>
-
-<p id="demo"></p>
 </body>
-<script src="script.js" ></script>
+<script src="script.js">
+</script>
 </html>
