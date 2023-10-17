@@ -689,53 +689,53 @@ canvasCloseBtn.addEventListener('click', () => {
 
 // dragElement(canvasArea);
 
-// const dragElement = (element) => {
-//   let pos1 = 0, pos2 = 0;
+const dragElement = (element) => {
+  let pos1 = 0, pos2 = 0;
 
-//   const dragMouseUp = () => {
-//     document.onmouseup = null;
-//     document.onmousemove = null;
-//   };
+  const dragMouseUp = () => {
+    document.onmouseup = null;
+    document.onmousemove = null;
+  };
 
-//   const dragMouseMove = (event) => {
-//     event.preventDefault();
+  const dragMouseMove = (event) => {
+    event.preventDefault();
     
-//     const offsetX = event.clientX - pos1;
-//     const offsetY = event.clientY - pos2;
+    const offsetX = event.clientX - pos1;
+    const offsetY = event.clientY - pos2;
     
-//     pos1 = event.clientX + offsetX;
-//     pos2 = event.clientY + offsetY;
+    pos1 = event.clientX + offsetX;
+    pos2 = event.clientY + offsetY;
 
-//     // Calculate the boundaries based on the screen size
-//     const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-//     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    // Calculate the boundaries based on the screen size
+    const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 
-//     const minLeft = 0;
-//     const maxLeft = viewportWidth - element.clientWidth;
-//     const minTop = 0;
-//     const maxTop = viewportHeight - element.clientHeight;
+    const minLeft = 0;
+    const maxLeft = viewportWidth - element.clientWidth;
+    const minTop = 0;
+    const maxTop = viewportHeight - element.clientHeight;
 
-//     // Ensure the element stays within the boundaries
-//     const newLeft = Math.min(Math.max(element.offsetLeft + offsetX, minLeft), maxLeft);
-//     const newTop = Math.min(Math.max(element.offsetTop + offsetY, minTop), maxTop);
+    // Ensure the element stays within the boundaries
+    const newLeft = Math.min(Math.max(element.offsetLeft + offsetX, minLeft), maxLeft);
+    const newTop = Math.min(Math.max(element.offsetTop + offsetY, minTop), maxTop);
 
-//     element.style.left = `${newLeft}px`;
-//     element.style.top = `${newTop}px`;
-//   };
+    element.style.left = `${newLeft}px`;
+    element.style.top = `${newTop}px`;
+  };
 
-//   const dragMouseDown = (event) => {
-//     event.preventDefault();
-//     pos1 = event.clientX - element.offsetLeft;
-//     pos2 = event.clientY - element.offsetTop;
+  const dragMouseDown = (event) => {
+    event.preventDefault();
+    pos1 = event.clientX - element.offsetLeft;
+    pos2 = event.clientY - element.offsetTop;
     
-//     document.onmouseup = dragMouseUp;
-//     document.onmousemove = dragMouseMove;
-//   };
+    document.onmouseup = dragMouseUp;
+    document.onmousemove = dragMouseMove;
+  };
 
-//   element.onmousedown = dragMouseDown;
-// };
+  element.onmousedown = dragMouseDown;
+};
 
-// dragElement(canvasArea);
+dragElement(canvasArea);
 
 
 
