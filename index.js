@@ -2,6 +2,8 @@ const startbox = document.querySelector("#startmenu-box");
 const startbtn = document.querySelector("#start-btn");
 let startIsOpen = false
 
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 startbtn.addEventListener("click", function () {
   startbox.classList.toggle("active-start");
   if (startbox.classList.contains('active-start')) {
