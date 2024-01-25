@@ -1,4 +1,4 @@
-# Windows_11_Homescreen_on _a_Browser
+# Windows 11 Clone
 ## A full working Windows 11 HomeScreen on a Browser
 ### Visit the site -> https://hrithik-windows11.netlify.app/
 ![Screenshot 2023-05-18 215436](https://github.com/hrx0hrithik/Windows_11_Homescreen/assets/93973566/6ecd28bf-86b1-4457-a453-0f6e702014df)
